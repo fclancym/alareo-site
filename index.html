@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alareo Leadership — Executive coaching & leadership development</title>
+<meta name="description" content="Alareo Leadership supports leaders' potential, performance and wellbeing in the era of AI. Executive coaching, the LEAF leadership programme, and reflective retreats.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1f2d3b;
+    --ink-soft:#4a5a69;
+    --green:#4f8070;
+    --green-deep:#2f5145;
+    --paper:#f5f4ed;
+    --sage:#e7ede8;
+    --line:rgba(31,45,59,.14);
+    --white:#ffffff;
+    --maxw:1140px;
+    --serif:"Newsreader",Georgia,serif;
+    --sans:"Hanken Grotesk",-apple-system,BlinkMacSystemFont,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.6;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+  /* three-bar brand motif */
+  .mark{display:inline-flex;align-items:flex-end;gap:4px;height:22px}
+  .mark span{width:6px;background:var(--green);border-radius:1px}
+  .mark span:nth-child(1){height:44%}
+  .mark span:nth-child(2){height:72%}
+  .mark span:nth-child(3){height:100%}
+
+  /* nav */
+  .nav{position:relative;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
+  .nav__in{display:flex;align-items:center;justify-content:space-between;height:164px}
+  .nav__logo{display:flex;align-items:center;flex:none}
+  .nav__logo img{height:148px;width:auto;display:block}
+  .nav__links{display:flex;align-items:center;gap:30px}
+  .nav__links a{font-size:15px;color:var(--ink-soft);font-weight:500;transition:color .18s}
+  .nav__links a:hover{color:var(--green-deep)}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-weight:600;font-size:15px;
+    background:var(--green-deep);color:#fff;padding:11px 22px;border-radius:2px;border:1px solid var(--green-deep);
+    cursor:pointer;transition:background .18s,border-color .18s,color .18s}
+  .btn:hover{background:#264337;color:#fff}
+  .nav__links a.btn,.nav__links a.btn:hover{color:#fff}
+  .btn--ghost{background:transparent;color:var(--green-deep);border-color:var(--green);font-weight:600}
+  .btn--ghost:hover{background:var(--white);border-color:var(--green-deep);color:var(--green-deep)}
+  .btn .arr{font-size:16px;line-height:1;transition:transform .18s}
+  .btn--ghost:hover .arr{transform:translateX(3px)}
+  .nav__toggle{display:none;background:none;border:0;font-size:24px;color:var(--ink);cursor:pointer}
+
+  /* hero */
+  .hero{padding:96px 0 84px;position:relative;overflow:hidden}
+  .hero__grid{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center}
+  .hero__eyebrow{display:flex;align-items:center;gap:12px;color:var(--green-deep);font-weight:600;font-size:14px;letter-spacing:.04em;margin-bottom:26px}
+  .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(38px,5.4vw,62px);line-height:1.08;letter-spacing:-.01em;color:var(--ink)}
+  .hero h1 em{font-style:italic;color:var(--green-deep)}
+  .hero__sub{font-size:19px;color:var(--ink-soft);margin-top:26px;max-width:34em;line-height:1.65}
+  .hero__cta{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}
+  .hero__panel{position:relative}
+  .hero__panel .quotecard{background:var(--white);border:1px solid var(--line);border-radius:4px;padding:34px 32px;box-shadow:0 24px 50px -34px rgba(31,45,59,.4)}
+  .hero__panel .quotecard p{font-family:var(--serif);font-size:22px;line-height:1.42;color:var(--ink);font-weight:400}
+  .hero__panel .quotecard .attr{margin-top:18px;font-family:var(--sans);font-size:14px;color:var(--green-deep);font-weight:600}
+  .hero__panel .tag{position:absolute;top:-16px;left:-16px;background:var(--sage);border:1px solid var(--line);border-radius:3px;padding:8px 14px;font-size:13px;font-weight:600;color:var(--green-deep)}
+
+  /* generic section */
+  .section{padding:88px 0}
+  .section--sage{background:var(--sage)}
+  .section--ink{background:var(--ink);color:#e8eef1}
+  .lead-head{font-family:var(--serif);font-weight:400;font-size:clamp(28px,3.6vw,42px);line-height:1.15;letter-spacing:-.01em;max-width:16em}
+  .section--ink .lead-head{color:#fff}
+  .kicker{display:flex;align-items:center;gap:12px;color:var(--green-deep);font-weight:600;font-size:14px;letter-spacing:.03em;margin-bottom:20px}
+  .section--ink .kicker{color:#9ec7b6}
+
+  /* full-width green band */
+  .band{background:var(--green-deep);color:#eaf1ec;padding:56px 0}
+  .band__in{display:flex;align-items:center;justify-content:space-between;gap:40px}
+  .band h2{font-family:var(--serif);font-weight:400;font-size:clamp(26px,3.2vw,38px);line-height:1.2;color:#fff;max-width:18em}
+  .band .btn--ghost{color:#fff;border-color:rgba(255,255,255,.55)}
+  .band .btn--ghost:hover{background:rgba(255,255,255,.1);border-color:#fff;color:#fff}
+
+  /* moment */
+  .moment__grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;margin-top:8px}
+  .moment__body p{font-size:18px;color:var(--ink-soft);margin-bottom:18px;max-width:38em}
+  .supports{list-style:none;border-top:1px solid var(--line)}
+  .supports li{padding:16px 0 16px 30px;border-bottom:1px solid var(--line);position:relative;font-size:17px;color:var(--ink)}
+  .supports li::before{content:"";position:absolute;left:0;top:24px;width:11px;height:11px;background:var(--green);border-radius:50%}
+  .supports li b{font-weight:600}
+
+  /* offers */
+  .offers{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:44px}
+  .offer{background:var(--green-deep);border:1px solid var(--green-deep);border-radius:5px;padding:34px 30px;display:flex;flex-direction:column;color:#eaf1ec}
+  .offer__no{font-family:var(--serif);font-style:italic;font-size:19px;color:#bfe0d1;margin-bottom:16px}
+  .offer h3{font-family:var(--serif);font-weight:500;font-size:25px;margin-bottom:12px;line-height:1.2;color:#fff}
+  .offer p{font-size:15.5px;color:#d3e3da;line-height:1.6;flex:1}
+  .offer__meta{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.2);font-size:13.5px;color:#bcd3c6}
+  .offer__badge{align-self:flex-start;margin-bottom:16px;background:rgba(255,255,255,.14);color:#fff;font-size:12.5px;font-weight:600;padding:5px 11px;border-radius:20px}
+  .offer .btn--ghost{margin-top:22px;align-self:flex-start;padding:9px 16px;font-size:13.5px;color:#fff;border-color:rgba(255,255,255,.45)}
+  .offer .btn--ghost:hover{background:rgba(255,255,255,.1);border-color:#fff;color:#fff}
+
+  /* about */
+  .about__grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+  .about__photo{position:relative}
+  .about__photo img{border-radius:5px;width:100%;filter:saturate(.96)}
+  .about__photo .mark{position:absolute;bottom:22px;left:-14px;background:var(--paper);padding:12px;border-radius:3px;border:1px solid var(--line);height:auto}
+  .about__photo .mark span{height:auto}
+  .about__photo .mark span:nth-child(1){height:16px}
+  .about__photo .mark span:nth-child(2){height:26px}
+  .about__photo .mark span:nth-child(3){height:36px}
+  .about__body h2{font-family:var(--serif);font-weight:400;font-size:clamp(28px,3.4vw,40px);margin-bottom:8px}
+  .about__role{color:var(--green-deep);font-weight:600;font-size:15px;margin-bottom:24px}
+  .about__body p{color:var(--ink-soft);font-size:17px;margin-bottom:16px;max-width:40em}
+  .creds{list-style:none;margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:12px 28px}
+  .creds li{font-size:14.5px;color:var(--ink);padding-left:20px;position:relative;line-height:1.45}
+  .creds li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border:1.5px solid var(--green);border-radius:50%}
+
+  /* testimonials */
+  .quotes{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:44px}
+  .quote{background:var(--white);border:1px solid var(--line);border-radius:5px;padding:36px 34px}
+  .quote p{font-family:var(--serif);font-size:20px;line-height:1.5;color:var(--ink);margin-bottom:20px}
+  .quote .attr{font-family:var(--sans);font-size:14px;font-weight:600;color:var(--green-deep)}
+
+  /* people */
+  .people{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px}
+  .person{border:1px solid rgba(255,255,255,.16);border-radius:5px;overflow:hidden;padding:0 0 26px}
+  .person img{width:100%;aspect-ratio:1;object-fit:cover;object-position:center 18%;display:block}
+  .person h4{font-family:var(--serif);font-weight:500;font-size:22px;color:#fff;margin:18px 22px 4px}
+  .person .prole{color:#9ec7b6;font-size:14px;font-weight:600;margin:0 22px 12px}
+  .person p{font-size:14.5px;color:#c3d1d9;line-height:1.55;margin:0 22px}
+
+  /* contact */
+  .contact__grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;margin-top:8px}
+  .contact__info p{color:var(--ink-soft);font-size:18px;margin-bottom:26px;max-width:32em}
+  .cline{display:flex;gap:14px;padding:15px 0;border-bottom:1px solid var(--line);font-size:16px}
+  .cline .lab{width:96px;color:var(--green-deep);font-weight:600;flex:none}
+  .cline a:hover{color:var(--green-deep)}
+  form{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:32px}
+  .field{margin-bottom:18px}
+  .field label{display:block;font-size:14px;font-weight:600;margin-bottom:7px;color:var(--ink)}
+  .field input,.field textarea{width:100%;font-family:var(--sans);font-size:16px;color:var(--ink);
+    background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:12px 14px;transition:border-color .18s}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--green)}
+  .field textarea{resize:vertical;min-height:110px}
+  form .note{font-size:12.5px;color:var(--ink-soft);margin-top:10px}
+
+  /* footer */
+  .foot{background:var(--ink);color:#b9c6cf;padding:56px 0 34px}
+  .foot__top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:flex-end;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.14)}
+  .foot__mark{display:flex;align-items:flex-end;gap:14px}
+  .foot__word{font-family:var(--serif);font-size:34px;color:#fff;line-height:1}
+  .foot__word small{display:block;font-family:var(--sans);font-size:12px;letter-spacing:.28em;color:#9ec7b6;margin-top:6px;font-weight:600}
+  .foot__mark .mark span{background:#7fb49f}
+  .foot__addr{font-size:14.5px;line-height:1.7;text-align:right}
+  .foot__bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:22px;font-size:13px;color:#8a99a3}
+
+  /* motion */
+  .reveal{opacity:0;transform:translateY(14px)}
+  .reveal.in{opacity:1;transform:none;transition:opacity .7s ease,transform .7s ease}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+
+  /* responsive */
+  @media(max-width:900px){
+    .hero__grid,.moment__grid,.about__grid,.contact__grid{grid-template-columns:1fr;gap:40px}
+    .offers,.people{grid-template-columns:1fr}
+    .quotes{grid-template-columns:1fr}
+    .creds{grid-template-columns:1fr}
+    .nav__links{position:fixed;inset:128px 0 auto 0;background:#fff;flex-direction:column;align-items:flex-start;gap:0;padding:8px 28px 20px;border-bottom:1px solid var(--line);display:none}
+    .nav__logo img{height:108px}
+    .nav__in{height:128px}
+    .nav__links.open{display:flex}
+    .nav__links a{padding:13px 0;width:100%;border-bottom:1px solid var(--line)}
+    .nav__links .btn{margin-top:12px;width:auto;border-bottom:1px solid var(--green-deep);color:#fff}
+    .band__in{flex-direction:column;align-items:flex-start}
+    .nav__toggle{display:block}
+    .about__photo{max-width:340px;margin:0 auto}
+    .foot__addr{text-align:left}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav__in">
+    <a class="nav__logo" href="#top" aria-label="Alareo Leadership home"><img src="assets/logo.png" alt="Alareo Leadership"></a>
+    <nav class="nav__links" id="menu">
+      <a href="#moment">Approach</a>
+      <a href="#offers">Ways to work</a>
+      <a href="#about">About Aideen</a>
+      <a href="#voices">Testimonials</a>
+      <a class="btn" href="#contact">Start a conversation</a>
+    </nav>
+    <button class="nav__toggle" id="toggle" aria-label="Menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div class="reveal in">
+        <div class="hero__eyebrow"><span class="mark"><span></span><span></span><span></span></span> Executive coaching &amp; leadership development</div>
+        <h1>Supporting leaders' potential, performance and wellbeing in the <em>era of AI</em>.</h1>
+        <p class="hero__sub">We're in a time of profound change. The human qualities of leadership — self-awareness, empathy, judgement — matter more than ever. Alareo gives leaders the space to think clearly, decide well, and lead as the best of themselves.</p>
+        <div class="hero__cta">
+          <a class="btn" href="#contact">Start a conversation</a>
+          <a class="btn btn--ghost" href="#offers">Explore how we work <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <div class="hero__panel reveal in">
+        <span class="tag">Client reflection</span>
+        <div class="quotecard">
+          <p>"I walked in feeling inwardly deflated, and walked out with lightness and a clearer sense of how to move forward."</p>
+          <div class="attr">Executive coaching client</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-label="In the era of AI">
+    <div class="wrap band__in">
+      <h2>The human qualities of leadership matter more than ever in the era of AI.</h2>
+      <a class="btn btn--ghost" href="#contact">Start a conversation <span class="arr" aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <!-- MOMENT / APPROACH -->
+  <section class="section" id="moment">
+    <div class="wrap">
+      <div class="kicker"><span class="mark"><span></span><span></span><span></span></span> The moment leaders are in</div>
+      <div class="moment__grid">
+        <div class="moment__body">
+          <h2 class="lead-head" style="margin-bottom:24px">Space to think, when everything is moving at once.</h2>
+          <p>AI, uncertainty and rising expectations are reshaping how organisations work faster than most can absorb. Under pressure, leaders tend to either freeze or over-function — and judgement suffers either way.</p>
+          <p>Coaching interrupts that. It's a confidential, non-judgmental space to reflect, be challenged, and reconnect with what matters — so leaders stay grounded enough to be present today, and brave enough to shape what comes next.</p>
+        </div>
+        <div>
+          <p style="font-size:15px;color:var(--ink-soft);margin-bottom:14px;font-weight:600">Coaching with Alareo supports you to:</p>
+          <ul class="supports">
+            <li>Have genuine <b>space to think</b>, explore and be challenged</li>
+            <li>Gain <b>clarity</b> and a clearer sense of direction</li>
+            <li>Build <b>confidence and presence</b></li>
+            <li>Make <b>better decisions</b> under pressure</li>
+            <li>Navigate <b>life transitions</b> — a change in role, circumstances or stage</li>
+            <li>Be the <b>best version of yourself</b>, and deliver results</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFERS -->
+  <section class="section section--sage" id="offers">
+    <div class="wrap">
+      <div class="kicker"><span class="mark"><span></span><span></span><span></span></span> Three ways to work together</div>
+      <h2 class="lead-head">Coaching at the centre — for individuals, teams and organisations.</h2>
+      <div class="offers">
+        <article class="offer">
+          <div class="offer__no">i.</div>
+          <h3>Executive Coaching</h3>
+          <p>One-to-one coaching for senior leaders. A trusted space to reflect, challenge assumptions and grow — whether you're leading through complexity or navigating a transition in role, circumstances or life stage.</p>
+          <div class="offer__meta">Values-based coaching with board-level perspective.</div>
+          <a class="btn btn--ghost" href="#contact">Find out more <span class="arr" aria-hidden="true">→</span></a>
+        </article>
+        <article class="offer">
+          <div class="offer__no">ii.</div>
+          <h3>LEAF Programme</h3>
+          <p>A bespoke future-leadership programme, co-created with your organisation. Workshops, facilitated reflection and coaching build self-aware, resilient, future-focused leaders who can lead themselves, others and the business.</p>
+          <div class="offer__meta">Co-delivered with Geraldine Murphy, Evolution Partners.</div>
+          <a class="btn btn--ghost" href="#contact">Find out more <span class="arr" aria-hidden="true">→</span></a>
+        </article>
+        <article class="offer">
+          <span class="offer__badge">In development</span>
+          <div class="offer__no">iii.</div>
+          <h3>Pause en Provence</h3>
+          <p>A reflective retreat to step back and restore — space to reflect, connect and return to your leadership with renewed clarity and energy.</p>
+          <div class="offer__meta">Details to follow — register your interest.</div>
+          <a class="btn btn--ghost" href="#contact">Register interest <span class="arr" aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="wrap about__grid">
+      <div class="about__photo">
+        <img src="assets/aideen-cardiff.jpg" alt="Aideen Cardiff, founder of Alareo Leadership">
+        <span class="mark"><span></span><span></span><span></span></span>
+      </div>
+      <div class="about__body">
+        <div class="kicker"><span class="mark"><span></span><span></span><span></span></span> About</div>
+        <h2>Aideen Cardiff</h2>
+        <div class="about__role">Founder &amp; Executive Coach</div>
+        <p>Aideen brings more than three decades of senior leadership across global technology organisations — HP, IBM and Microsoft — spanning sales, consulting, partner ecosystems and large-scale transformation across Ireland, the UK and Europe.</p>
+        <p>That commercial credibility sits alongside a deep commitment to culture, inclusion and governance. She is a serving Board Chair and Non-Executive Director, and an accredited executive coach supporting leaders through uncertainty, change and transition — with a focus on confidence, clarity, decision-making, presence and wellbeing.</p>
+        <ul class="creds">
+          <li>Executive Coaching Diploma, UCD Michael Smurfit (2025–26)</li>
+          <li>Chair, Work Equal · NED &amp; ARC, St James's Hospital</li>
+          <li>M.Sc. in Business, UCC — Strategy, Innovation &amp; OD</li>
+          <li>Governance &amp; Compliance; Sustainability Leadership</li>
+          <li>Named a most influential Channel leader in Europe (CRN, 2020)</li>
+          <li>Qualified Organisational Development practitioner</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section section--sage" id="voices">
+    <div class="wrap">
+      <div class="kicker"><span class="mark"><span></span><span></span><span></span></span> In their words</div>
+      <h2 class="lead-head">What leaders take away from the work.</h2>
+      <div class="quotes">
+        <figure class="quote">
+          <p>"Working with Aideen was a very positive experience. She brought professionalism, insight and a thoughtful approach to each session, creating a supportive and confidential space to reflect. I'd recommend her to anyone looking for an experienced coach who can facilitate constructive conversations and an independent perspective."</p>
+          <figcaption class="attr">Elaine — Health &amp; Safety Authority</figcaption>
+        </figure>
+        <figure class="quote">
+          <p>"An extremely pleasant and liberating experience. I regained my self-confidence and a greater ability to hold my own with others. Aideen's approach — non-judgmental, questioning and deeply human — was unique and meaningful."</p>
+          <figcaption class="attr">Executive coaching client · shared anonymously</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- PEOPLE -->
+  <section class="section section--ink" id="people">
+    <div class="wrap">
+      <div class="kicker"><span class="mark"><span></span><span></span><span></span></span> The team</div>
+      <h2 class="lead-head">Experienced leaders, coaching from lived experience.</h2>
+      <div class="people">
+        <div class="person">
+          <img src="assets/aideen-cardiff.jpg" alt="Aideen Cardiff">
+          <h4>Aideen Cardiff</h4>
+          <div class="prole">Director &amp; Executive Coach</div>
+          <p>Three decades of global technology leadership, now coaching leaders through change, complexity and transition.</p>
+        </div>
+        <div class="person">
+          <img src="assets/declan-whittle.jpg" alt="Declan Whittle">
+          <h4>Declan Whittle</h4>
+          <div class="prole">Director &amp; Mediator</div>
+          <p>Mediation and dispute resolution. Full profile to follow.</p>
+        </div>
+        <div class="person">
+          <img src="assets/geraldine-murphy.jpg" alt="Geraldine Murphy">
+          <h4>Geraldine Murphy</h4>
+          <div class="prole">LEAF Programme Partner</div>
+          <p>A highly accomplished bio-pharma CEO and founder of Evolution Partners. She combines commercial leadership with a passion for developing people, working with executive teams on strategy, change and coaching.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="kicker"><span class="mark"><span></span><span></span><span></span></span> Get in touch</div>
+      <div class="contact__grid">
+        <div class="contact__info">
+          <h2 class="lead-head" style="margin-bottom:22px">Start a conversation.</h2>
+          <p>Whether you're exploring coaching for yourself, or a development programme for your organisation, the first step is a conversation.</p>
+          <div class="cline"><span class="lab">Location</span><span>Glenard, Meath Road, Bray, Co. Wicklow, A98 XC92</span></div>
+          <div class="cline"><span class="lab">Email</span><a href="mailto:aideen.cardiff@alareo.ie">aideen.cardiff@alareo.ie</a></div>
+          <div class="cline"><span class="lab">Phone</span><a href="tel:+353871219003">+353 87 121 9003</a></div>
+          <div class="cline"><span class="lab">LinkedIn</span><a href="https://www.linkedin.com/in/aideen-cardiff-b489a86/" target="_blank" rel="noopener">Aideen Cardiff</a></div>
+        </div>
+        <form id="contact-form">
+          <div class="field"><label for="n">Name</label><input id="n" name="Name" type="text" placeholder="Your name" required></div>
+          <div class="field"><label for="e">Email</label><input id="e" name="Email" type="email" placeholder="you@organisation.com" required></div>
+          <div class="field"><label for="m">How can we help?</label><textarea id="m" name="Message" placeholder="A line or two about what you're looking for" required></textarea></div>
+          <button class="btn" type="submit" style="width:100%">Send message</button>
+          <p class="note">Opens your email app with the message ready to send to Aideen.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__top">
+      <div class="foot__mark">
+        <span class="mark"><span></span><span></span><span></span></span>
+        <div class="foot__word">Alareo<small>Leadership</small></div>
+      </div>
+      <div class="foot__addr">
+        Glenard, Meath Road, Bray<br>Co. Wicklow, A98 XC92, Ireland
+      </div>
+    </div>
+    <div class="foot__bottom">
+      <span>© 2026 Alareo Leadership.</span>
+      <span>Supporting leaders' potential, performance &amp; wellbeing in the era of AI.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var toggle=document.getElementById('toggle'),menu=document.getElementById('menu');
+  toggle.addEventListener('click',function(){
+    var open=menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded',open);
+  });
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open');toggle.setAttribute('aria-expanded',false);});});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  document.getElementById('contact-form').addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=document.getElementById('n').value.trim();
+    var email=document.getElementById('e').value.trim();
+    var msg=document.getElementById('m').value.trim();
+    var body=encodeURIComponent('Name: '+name+'\nEmail: '+email+'\n\n'+msg);
+    window.location.href='mailto:aideen.cardiff@alareo.ie?subject='+encodeURIComponent('Alareo enquiry from '+name)+'&body='+body;
+  });
+</script>
+</body>
+</html>
