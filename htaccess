@@ -1,0 +1,55 @@
+# ---------------------------------------------------------------
+# Alareo Leadership — server settings for Blacknight (Apache)
+# Upload into the web root (httpdocs or public_html), next to index.html.
+# After uploading, test the live site at https://securityheaders.com
+# If the headers below don't show up there, Plesk's nginx is serving the
+# files directly: paste the same headers into Plesk > Apache & nginx
+# Settings instead.
+# ---------------------------------------------------------------
+
+# 1. HTTPS
+# Preferred: in Plesk > Hosting Settings, tick "Permanent SEO-safe 301
+# redirect from HTTP to HTTPS". Only uncomment these lines if your plan
+# has no such toggle.
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 2. Never serve internal files (README notes, dotfiles, git folder)
+<FilesMatch "^(\..*|.*\.md)$">
+  Require all denied
+</FilesMatch>
+RedirectMatch 404 /\.git
+
+# 3. No folder listings. If the site shows a "500 error" after
+# uploading this file, delete this one line.
+Options -Indexes
+
+# 4. Security headers
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+
+  # Content-Security-Policy: only allows this site's own files plus Google
+  # Fonts. If you self-host the fonts, remove the two Google addresses.
+  # If you add a form service later (e.g. Formspree), add its address to
+  # form-action and connect-src.
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
+
+  # HSTS: uncomment ONLY once https:// is confirmed working on the domain.
+  # Header always set Strict-Transport-Security "max-age=31536000"
+</IfModule>
+
+# 5. Caching: the page itself is never cached, so edits show up straight
+# away. Images are cached for a month, so when you replace an image,
+# give the new one a new filename (e.g. headshot-2027.jpg).
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+</IfModule>
