@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alareo Leadership — Executive coaching & leadership development</title>
-<meta name="description" content="Alareo Leadership supports leaders' potential, performance and wellbeing in the era of AI. Executive coaching, the LEAF leadership programme, and reflective retreats.">
+<title>Alareo Leadership | Executive coaching, leadership team development and mediation</title>
+<meta name="description" content="Alareo Leadership provides executive coaching, leadership team development, mediation and reflective leadership retreats, giving leaders the space and challenge to navigate complexity. Based in Bray, Co. Wicklow.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -45,10 +45,10 @@
 
   /* nav */
   .nav{position:relative;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
-  .nav__in{display:flex;align-items:center;justify-content:space-between;height:164px}
+  .nav__in{display:flex;align-items:center;justify-content:space-between;height:196px}
   .nav__logo{display:flex;align-items:center;flex:none}
-  .nav__logo img{height:148px;width:auto;display:block}
-  .nav__links{display:flex;align-items:center;gap:30px}
+  .nav__logo img{height:176px;width:auto;display:block}
+  .nav__links{display:flex;align-items:center;gap:24px}
   .nav__links a{font-size:15px;color:var(--ink-soft);font-weight:500;transition:color .18s}
   .nav__links a:hover{color:var(--green-deep)}
   .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-weight:600;font-size:15px;
@@ -63,18 +63,28 @@
   .nav__toggle{display:none;background:none;border:0;font-size:24px;color:var(--ink);cursor:pointer}
 
   /* hero */
-  .hero{padding:96px 0 84px;position:relative;overflow:hidden}
-  .hero__grid{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center}
+  .hero{padding:80px 0 100px;background:var(--paper);position:relative;overflow:hidden}
+  .hero__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:72px;align-items:center}
   .hero__eyebrow{display:flex;align-items:center;gap:12px;color:var(--green-deep);font-weight:600;font-size:14px;letter-spacing:.04em;margin-bottom:26px}
   .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(38px,5.4vw,62px);line-height:1.08;letter-spacing:-.01em;color:var(--ink)}
   .hero h1 em{font-style:italic;color:var(--green-deep)}
   .hero__sub{font-size:19px;color:var(--ink-soft);margin-top:26px;max-width:34em;line-height:1.65}
   .hero__cta{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}
-  .hero__panel{position:relative}
-  .hero__panel .quotecard{background:var(--white);border:1px solid var(--line);border-radius:4px;padding:34px 32px;box-shadow:0 24px 50px -34px rgba(31,45,59,.4)}
-  .hero__panel .quotecard p{font-family:var(--serif);font-size:22px;line-height:1.42;color:var(--ink);font-weight:400}
-  .hero__panel .quotecard .attr{margin-top:18px;font-family:var(--sans);font-size:14px;color:var(--green-deep);font-weight:600}
-  .hero__panel .tag{position:absolute;top:-16px;left:-16px;background:var(--sage);border:1px solid var(--line);border-radius:3px;padding:8px 14px;font-size:13px;font-weight:600;color:var(--green-deep)}
+  .hero__photo{position:relative;isolation:isolate}
+  .hero__photo img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:6px;display:block}
+  /* growing leaf, rising from behind the photo's top-left corner */
+  .hero__photo::before{content:"";position:absolute;z-index:-1;left:-196px;top:-128px;width:560px;height:600px;background:url("assets/bg-leaf-art.svg") left top/contain no-repeat}
+  .hero__photo .quotecard{position:absolute;right:-28px;bottom:-44px;max-width:360px;margin:0;background:#fff;border:1px solid var(--line);border-radius:4px;padding:20px 22px;box-shadow:0 24px 50px -30px rgba(31,45,59,.45)}
+  .hero__photo .quotecard p{font-family:var(--serif);font-size:15.5px;line-height:1.45;color:var(--ink)}
+  .hero__photo .quotecard .attr{margin-top:10px;font-size:13px;color:var(--green-deep);font-weight:600}
+  @media(max-width:1180px){.hero__photo::before{left:-150px;top:-104px;width:440px;height:470px}}
+  @media(max-width:900px){
+    .hero{padding:48px 0 64px}
+    .hero__grid{grid-template-columns:1fr;gap:44px}
+    .hero__photo{max-width:440px}
+    .hero__photo::before{display:none}
+    .hero__photo .quotecard{position:relative;right:auto;bottom:auto;margin:-48px 16px 0;max-width:none}
+  }
 
   /* generic section */
   .section{padding:88px 0}
@@ -85,12 +95,24 @@
   .kicker{display:flex;align-items:center;gap:12px;color:var(--green-deep);font-weight:600;font-size:14px;letter-spacing:.03em;margin-bottom:20px}
   .section--ink .kicker{color:#9ec7b6}
 
-  /* full-width green band */
-  .band{background:var(--green-deep);color:#eaf1ec;padding:56px 0}
-  .band__in{display:flex;align-items:center;justify-content:space-between;gap:40px}
-  .band h2{font-family:var(--serif);font-weight:400;font-size:clamp(26px,3.2vw,38px);line-height:1.2;color:#fff;max-width:18em}
-  .band .btn--ghost{color:#fff;border-color:rgba(255,255,255,.55)}
-  .band .btn--ghost:hover{background:rgba(255,255,255,.1);border-color:#fff;color:#fff}
+  /* key facts */
+  .stats{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .stats__in{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:34px 28px}
+  .stat{display:flex;gap:16px;align-items:flex-end}
+  .stat b{font-family:var(--serif);font-weight:400;font-size:40px;line-height:1;color:var(--green-deep);white-space:nowrap}
+  .stat span{font-size:14.5px;color:var(--ink-soft);line-height:1.4;padding-bottom:3px}
+  @media(max-width:900px){.stats__in{grid-template-columns:1fr;gap:18px}.stat{flex-direction:column;align-items:flex-start;gap:4px}.stat b{font-size:34px}}
+
+  /* Bray photo band */
+  .photoband{color:#fff;padding:120px 0;background-repeat:no-repeat;background-size:cover}
+  .photoband h2{font-family:var(--serif);font-weight:400;font-size:clamp(28px,3.4vw,42px);line-height:1.2;max-width:17em;color:#fff;text-shadow:0 1px 18px rgba(0,0,0,.25)}
+  .photoband .btn--ghost{margin-top:28px;color:#fff;border-color:rgba(255,255,255,.6)}
+  .photoband .btn--ghost:hover{background:rgba(255,255,255,.1);border-color:#fff;color:#fff}
+  .photoband[data-band="7817"]{background-image:linear-gradient(90deg,rgba(31,45,59,.78),rgba(31,45,59,.38) 60%,rgba(31,45,59,.15)),url("assets/bray-band-7817.jpg");background-position:center,center 45%}
+  .photoband[data-band="6305"]{background-image:linear-gradient(90deg,rgba(31,45,59,.72),rgba(31,45,59,.30) 60%,rgba(31,45,59,.10)),url("assets/bray-band-6305.jpg");background-position:center,center 55%}
+  .photoband[data-band="7726"]{background-image:linear-gradient(90deg,rgba(31,45,59,.70),rgba(31,45,59,.28) 60%,rgba(31,45,59,.08)),url("assets/bray-band-7726.jpg");background-position:center,center 22%}
+  .photoband[data-band="sunset"]{background-image:linear-gradient(90deg,rgba(31,45,59,.74),rgba(31,45,59,.30)),url("assets/bg-bray-sunset.jpg");background-position:center,center 57%}
+  @media(max-width:900px){.photoband{padding:90px 0}}
 
   /* moment */
   .moment__grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;margin-top:8px}
@@ -173,17 +195,16 @@
 
   /* responsive */
   @media(max-width:900px){
-    .hero__grid,.moment__grid,.about__grid,.contact__grid{grid-template-columns:1fr;gap:40px}
+    .moment__grid,.about__grid,.contact__grid{grid-template-columns:1fr;gap:40px}
     .offers,.people{grid-template-columns:1fr}
     .quotes{grid-template-columns:1fr}
     .creds{grid-template-columns:1fr}
-    .nav__links{position:fixed;inset:128px 0 auto 0;background:#fff;flex-direction:column;align-items:flex-start;gap:0;padding:8px 28px 20px;border-bottom:1px solid var(--line);display:none}
-    .nav__logo img{height:108px}
-    .nav__in{height:128px}
+    .nav__links{position:fixed;inset:150px 0 auto 0;background:#fff;flex-direction:column;align-items:flex-start;gap:0;padding:8px 28px 20px;border-bottom:1px solid var(--line);display:none}
+    .nav__logo img{height:134px}
+    .nav__in{height:150px}
     .nav__links.open{display:flex}
     .nav__links a{padding:13px 0;width:100%;border-bottom:1px solid var(--line)}
     .nav__links .btn{margin-top:12px;width:auto;border-bottom:1px solid var(--green-deep);color:#fff}
-    .band__in{flex-direction:column;align-items:flex-start}
     .nav__toggle{display:block}
     .about__photo{max-width:340px;margin:0 auto}
     .foot__addr{text-align:left}
@@ -194,13 +215,13 @@
 
 <header class="nav">
   <div class="wrap nav__in">
-    <a class="nav__logo" href="#top" aria-label="Alareo Leadership home"><img src="assets/logo.png" alt="Alareo Leadership"></a>
+    <a class="nav__logo" href="#top" aria-label="Alareo Leadership home"><img src="assets/logo-full.png" alt="Alareo Leadership. Human, on Purpose."></a>
     <nav class="nav__links" id="menu">
       <a href="#moment">Approach</a>
       <a href="#offers">Ways to work</a>
-      <a href="#about">About Aideen</a>
-      <a href="#voices">Testimonials</a>
-      <a class="btn" href="#contact">Start a conversation</a>
+      <a href="#organisations">For organisations</a>
+      <a href="#about">About</a>
+      <a class="btn" href="#contact" data-booking>Book a chemistry call</a>
     </nav>
     <button class="nav__toggle" id="toggle" aria-label="Menu" aria-expanded="false">☰</button>
   </div>
@@ -212,30 +233,34 @@
   <section class="hero">
     <div class="wrap hero__grid">
       <div class="reveal in">
-        <div class="hero__eyebrow"><span class="mark"><span></span><span></span><span></span></span> Executive coaching &amp; leadership development</div>
-        <h1>Supporting leaders' potential, performance and wellbeing in the <em>era of AI</em>.</h1>
-        <p class="hero__sub">We're in a time of profound change. The human qualities of leadership — self-awareness, empathy, judgement — matter more than ever. Alareo gives leaders the space to think clearly, decide well, and lead as the best of themselves.</p>
+        <div class="hero__eyebrow"><span class="mark"><span></span><span></span><span></span></span> Executive coaching, Leadership team development and Mediation</div>
+        <h1><em>Transforming space</em>, to support leaders’ performance, potential and wellbeing.</h1>
+        <p class="hero__sub">In a world shaped by polycrisis and accelerating change, Alareo provides both space and challenge to help leaders cultivate the confidence, clarity and curiosity to navigate complexity, unlock human potential and lead purposeful transformation.</p>
         <div class="hero__cta">
-          <a class="btn" href="#contact">Start a conversation</a>
+          <a class="btn" href="#contact" data-booking>Book a chemistry call</a>
           <a class="btn btn--ghost" href="#offers">Explore how we work <span class="arr" aria-hidden="true">→</span></a>
         </div>
       </div>
-      <div class="hero__panel reveal in">
-        <span class="tag">Client reflection</span>
-        <div class="quotecard">
-          <p>"I walked in feeling inwardly deflated, and walked out with lightness and a clearer sense of how to move forward."</p>
-          <div class="attr">Executive coaching client</div>
-        </div>
+      <div class="hero__photo">
+        <img src="assets/aideen-hero-square.jpg" width="900" height="900" alt="Aideen Cardiff, Co-Founder and Director of Alareo Leadership">
+        <figure class="quotecard">
+          <blockquote><p>“Aideen is an excellent coach, who approached our sessions in a refreshingly holistic way, treating professional and non-professional life as two complementary aspects of a single life, rather than focusing on career at the expense of the person underneath.”</p></blockquote>
+          <figcaption class="attr">Partner at Law</figcaption>
+        </figure>
       </div>
     </div>
   </section>
 
-  <section class="band" aria-label="In the era of AI">
-    <div class="wrap band__in">
-      <h2>The human qualities of leadership matter more than ever in the era of AI.</h2>
-      <a class="btn btn--ghost" href="#contact">Start a conversation <span class="arr" aria-hidden="true">→</span></a>
-    </div>
-  </section>
+  <section class="stats" aria-label="Key facts"><div class="wrap stats__in">
+    <div class="stat"><b>30+ years</b><span>senior leadership at HP, IBM and Microsoft</span></div>
+    <div class="stat"><b>EMCC</b><span>accredited executive coach</span></div>
+    <div class="stat"><b>Board Chair</b><span>and Non-Executive Director</span></div>
+  </div></section>
+
+  <section class="photoband" data-band="7817" aria-label="Bray"><div class="wrap">
+    <h2>The human qualities of self-awareness, empathy, judgement and bravery matter more than ever.</h2>
+    <a class="btn btn--ghost" href="#contact">Start a conversation <span class="arr" aria-hidden="true">→</span></a>
+  </div></section>
 
   <!-- MOMENT / APPROACH -->
   <section class="section" id="moment">
@@ -409,6 +434,8 @@
 </footer>
 
 <script>
+  // PREVIEW ONLY: remove once Aideen has chosen the band photo
+  var band=new URLSearchParams(location.search).get('band'); if(band) document.querySelector('.photoband').dataset.band=band;
   var toggle=document.getElementById('toggle'),menu=document.getElementById('menu');
   toggle.addEventListener('click',function(){
     var open=menu.classList.toggle('open');
