@@ -169,7 +169,7 @@
   /* about */
   .about__grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
   .about__photo{position:relative}
-  .about__photo img{border-radius:5px;width:100%;filter:saturate(.96)}
+  .about__photo img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 20%;border-radius:5px}
   .about__photo .mark{position:absolute;bottom:22px;left:-14px;background:var(--paper);padding:12px;border-radius:3px;border:1px solid var(--line);height:auto}
   .about__photo .mark span{height:auto}
   .about__photo .mark span:nth-child(1){height:16px}
@@ -183,18 +183,29 @@
   .creds li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border:1.5px solid var(--green);border-radius:50%}
 
   /* testimonials */
-  .quotes{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:44px}
-  .quote{background:var(--white);border:1px solid var(--line);border-radius:5px;padding:36px 34px}
-  .quote p{font-family:var(--serif);font-size:20px;line-height:1.5;color:var(--ink);margin-bottom:20px}
+  .quotes{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
+  .quote{margin:0;background:#fff;border:1px solid var(--line);border-radius:5px;padding:36px 34px}
+  .quote blockquote{margin:0}
+  .quote p{font-family:var(--serif);font-size:18.5px;line-height:1.5;color:var(--ink);margin-bottom:18px}
   .quote .attr{font-family:var(--sans);font-size:14px;font-weight:600;color:var(--green-deep)}
+  .quote--featured{grid-column:1/-1;padding:44px 48px}
+  .quote--featured p{font-size:23px}
+  /* if the grid ends on an odd one out, let it span the full width */
+  .quotes > .quote:last-child:nth-child(even){grid-column:1/-1}
+  @media(max-width:900px){.quotes{grid-template-columns:1fr}.quote--featured{padding:34px 28px}.quote--featured p{font-size:20px}}
 
   /* people */
   .people{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px}
-  .person{border:1px solid rgba(255,255,255,.16);border-radius:5px;overflow:hidden;padding:0 0 26px}
-  .person img{width:100%;aspect-ratio:1;object-fit:cover;object-position:center 18%;display:block}
-  .person h4{font-family:var(--serif);font-weight:500;font-size:22px;color:#fff;margin:18px 22px 4px}
-  .person .prole{color:#9ec7b6;font-size:14px;font-weight:600;margin:0 22px 12px}
-  .person p{font-size:14.5px;color:#c3d1d9;line-height:1.55;margin:0 22px}
+  .person{border:1px solid rgba(255,255,255,.16);border-radius:5px;text-align:center;padding:30px 22px 26px}
+  .person img{width:176px;height:176px;border-radius:50%;object-fit:cover;object-position:center 22%;margin:0 auto;display:block;border:3px solid rgba(158,199,182,.45)}
+  .person h3{font-family:var(--serif);font-weight:500;font-size:22px;color:#fff;margin:20px 0 4px}
+  .person .prole{color:#9ec7b6;font-size:14px;font-weight:600;margin:0 0 12px}
+  .person p{font-size:14.5px;color:#c3d1d9;line-height:1.55;margin:0}
+  .person details{margin-top:14px;text-align:left}
+  .person details p{margin-top:10px}
+  .person summary{text-align:center;font-size:13.5px;color:#9ec7b6;text-decoration:underline;text-underline-offset:3px;cursor:pointer;list-style:none}
+  .person summary::-webkit-details-marker{display:none}
+  @media(max-width:900px){.person img{width:150px;height:150px}}
 
   /* contact */
   .contact__grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;margin-top:8px}
@@ -217,6 +228,7 @@
   .foot__mark{display:flex;align-items:flex-end;gap:14px}
   .foot__word{font-family:var(--serif);font-size:34px;color:#fff;line-height:1}
   .foot__word small{display:block;font-family:var(--sans);font-size:12px;letter-spacing:.28em;color:#9ec7b6;margin-top:6px;font-weight:600}
+  .foot__tag{margin:16px 0 0 40px;font-family:var(--serif);font-style:italic;font-weight:400;font-size:18px;line-height:1.3;color:#9ec7b6}
   .foot__mark .mark span{background:#7fb49f}
   .foot__addr{font-size:14.5px;line-height:1.7;text-align:right}
   .foot__bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:22px;font-size:13px;color:#8a99a3}
@@ -435,22 +447,23 @@
   <section class="section" id="about">
     <div class="wrap about__grid">
       <div class="about__photo">
-        <img src="assets/aideen-cardiff.jpg" alt="Aideen Cardiff, founder of Alareo Leadership">
+        <img src="assets/aideen-desk-v2.jpg" width="738" height="1050" alt="Aideen Cardiff, Co-Founder and Director of Alareo Leadership" loading="lazy">
         <span class="mark"><span></span><span></span><span></span></span>
       </div>
       <div class="about__body">
         <div class="kicker"><span class="mark"><span></span><span></span><span></span></span> About</div>
         <h2>Aideen Cardiff</h2>
-        <div class="about__role">Founder &amp; Executive Coach</div>
-        <p>Aideen brings more than three decades of senior leadership across global technology organisations — HP, IBM and Microsoft — spanning sales, consulting, partner ecosystems and large-scale transformation across Ireland, the UK and Europe.</p>
-        <p>That commercial credibility sits alongside a deep commitment to culture, inclusion and governance. She is a serving Board Chair and Non-Executive Director, and an accredited executive coach supporting leaders through uncertainty, change and transition — with a focus on confidence, clarity, decision-making, presence and wellbeing.</p>
+        <div class="about__role">Co-Founder &amp; Director</div>
+        <p>Aideen brings more than three decades of senior leadership across the global technology organisations HP, IBM and Microsoft, spanning sales, consulting, partner ecosystems, emerging technology and large-scale transformation across Ireland, the UK and Europe.</p>
+        <p>That commercial credibility sits alongside a deep commitment to culture, inclusion and governance. She is a serving Board Chair and Non-Executive Director, and is an EMCC accredited executive coach supporting leaders through uncertainty, change and transition, with a focus on confidence, clarity, decision-making, presence and wellbeing.</p>
         <ul class="creds">
-          <li>Executive Coaching Diploma, UCD Michael Smurfit (2025–26)</li>
-          <li>Chair, Work Equal · NED &amp; ARC, St James's Hospital</li>
-          <li>M.Sc. in Business, UCC — Strategy, Innovation &amp; OD</li>
-          <li>Governance &amp; Compliance; Sustainability Leadership</li>
+          <li>Executive Coaching, Higher Diploma, UCD Michael Smurfit (2025-26)</li>
+          <li>Innovation for Sustainability, Higher Diploma, UCD (2024-25)</li>
+          <li>Sustainability Leadership Certificates, Cambridge University (2023), Trinity Business School (2023)</li>
+          <li>Higher Diploma in Corporate Governance and Compliance (2022)</li>
           <li>Named a most influential Channel leader in Europe (CRN, 2020)</li>
-          <li>Qualified Organisational Development practitioner</li>
+          <li>M.Sc. in Business, UCC: Strategy, Innovation, Leadership and Organisational Development (2019)</li>
+          <li>DEI Advocate</li>
         </ul>
       </div>
     </div>
@@ -462,13 +475,26 @@
       <div class="kicker"><span class="mark"><span></span><span></span><span></span></span> In their words</div>
       <h2 class="lead-head">What leaders take away from the work.</h2>
       <div class="quotes">
-        <figure class="quote">
-          <p>"Working with Aideen was a very positive experience. She brought professionalism, insight and a thoughtful approach to each session, creating a supportive and confidential space to reflect. I'd recommend her to anyone looking for an experienced coach who can facilitate constructive conversations and an independent perspective."</p>
-          <figcaption class="attr">Elaine — Health &amp; Safety Authority</figcaption>
+        <figure class="quote quote--featured">
+          <blockquote><p>“Aideen is an excellent coach, who approached our sessions in a refreshingly holistic way, treating professional and non-professional life as two complementary aspects of a single life, rather than focusing on career at the expense of the person underneath. Our meetings were always thought-provoking, with plenty of constructive challenge to test my long held assumptions and explore new perspectives. Working with Aideen was a very valuable experience, which has equipped me to better work out what I want to do from here and given me greater confidence to embrace new opportunities.”</p></blockquote>
+          <figcaption class="attr">Partner at Law</figcaption>
         </figure>
         <figure class="quote">
-          <p>"An extremely pleasant and liberating experience. I regained my self-confidence and a greater ability to hold my own with others. Aideen's approach — non-judgmental, questioning and deeply human — was unique and meaningful."</p>
-          <figcaption class="attr">Executive coaching client · shared anonymously</figcaption>
+          <blockquote><p>“Working with Aideen was a very positive experience. She brought professionalism, insight and a thoughtful approach to each session, creating a supportive and confidential space to reflect. I’d recommend her to anyone looking for an experienced coach who can facilitate constructive conversations and an independent perspective.”</p></blockquote>
+          <figcaption class="attr">Coaching client, Health &amp; Safety Authority</figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote><p>“Professional coaching with Aideen gave me a confidential sounding board and the space to step back and reflect. It made me more self-aware, both of how I approach challenges and of the tools I already had at my disposal and gave me more faith in my own ability. Well worth it, and I’d recommend Aideen to anyone considering coaching.”</p></blockquote>
+          <figcaption class="attr">Senior Manager, Consulting sector</figcaption>
+        </figure>
+        <!-- TESTIMONIAL 4: second new testimonial goes here when it arrives -->
+        <figure class="quote">
+          <blockquote><p>“An extremely pleasant and liberating experience. I regained my self-confidence and a greater ability to hold my own with others. Aideen’s approach, non-judgmental, questioning and deeply human, was unique and meaningful.”</p></blockquote>
+          <figcaption class="attr">Executive coaching client</figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote><p>“I walked in feeling inwardly deflated, and walked out with lightness and a clearer sense of how to move forward.”</p></blockquote>
+          <figcaption class="attr">Executive coaching client</figcaption>
         </figure>
       </div>
     </div>
@@ -481,20 +507,30 @@
       <h2 class="lead-head">Experienced leaders, coaching from lived experience.</h2>
       <div class="people">
         <div class="person">
-          <img src="assets/aideen-cardiff.jpg" alt="Aideen Cardiff">
-          <h4>Aideen Cardiff</h4>
+          <img src="assets/aideen-desk-v2.jpg" alt="Aideen Cardiff">
+          <h3>Aideen Cardiff</h3>
           <div class="prole">Director &amp; Executive Coach</div>
-          <p>Three decades of global technology leadership, now coaching leaders through change, complexity and transition.</p>
+          <p>Aideen has a wealth of lived experience to draw on, in support of her coaching clients.</p>
+          <details>
+            <summary>Read full bio</summary>
+            <p>Aideen provides a confidential space for leaders to reflect and be challenged towards greater self-awareness, to accelerate performance and unlock potential, while ensuring a focus on personal wellbeing, purpose and fulfilment.</p>
+            <p>Aideen’s holistic approach, grounded in the belief that individuals have the capacity, energy and agency, has been highly impactful. It focuses on empowering clients to be the best version of themselves in the broader context of life, and in doing so, to successfully navigate change, complexity and transition.</p>
+          </details>
         </div>
         <div class="person">
-          <img src="assets/declan-whittle.jpg" alt="Declan Whittle">
-          <h4>Declan Whittle</h4>
-          <div class="prole">Director &amp; Mediator</div>
-          <p>Mediation and dispute resolution. Full profile to follow.</p>
+          <img src="assets/declan-whittle-v3.jpg" alt="Declan Whittle">
+          <h3>Declan Whittle</h3>
+          <div class="prole">Barrister-at-Law &amp; Mediator</div>
+          <p>Declan Whittle is a Barrister-at-Law and mediator who brings a thoughtful, independent and solutions-focused approach to conflict resolution.</p>
+          <details>
+            <summary>Read full bio</summary>
+            <p>With extensive experience in legal practice, mediation and dispute resolution, Declan helps individuals, teams and organisations navigate complex conversations, resolve differences constructively and build sustainable pathways forward.</p>
+            <p>His calm and impartial style creates a trusted environment where all parties can engage openly, explore perspectives and work towards meaningful agreement. As Alareo’s mediation partner, Declan complements our commitment to human-centred leadership by supporting respectful dialogue, stronger relationships and positive outcomes.</p>
+          </details>
         </div>
         <div class="person">
           <img src="assets/geraldine-murphy.jpg" alt="Geraldine Murphy">
-          <h4>Geraldine Murphy</h4>
+          <h3>Geraldine Murphy</h3>
           <div class="prole">LEAF Programme Partner</div>
           <p>A highly accomplished former bio-pharma CEO and company founder. She combines commercial leadership with a passion for developing people, working with executive teams on strategy, change and coaching.</p>
         </div>
@@ -510,7 +546,7 @@
         <div class="contact__info">
           <h2 class="lead-head" style="margin-bottom:22px">Start a conversation.</h2>
           <p>Whether you're exploring coaching for yourself, or a development programme for your organisation, the first step is a conversation.</p>
-          <div class="cline"><span class="lab">Location</span><span>Glenard, Meath Road, Bray, Co. Wicklow, A98 XC92</span></div>
+          <div class="cline"><span class="lab">Location</span><span>Bray, Co. Wicklow</span></div>
           <div class="cline"><span class="lab">Email</span><a href="mailto:aideen.cardiff@alareo.ie">aideen.cardiff@alareo.ie</a></div>
           <div class="cline"><span class="lab">Phone</span><a href="tel:+353871219003">+353 87 121 9003</a></div>
           <div class="cline"><span class="lab">LinkedIn</span><a href="https://www.linkedin.com/in/aideen-cardiff-b489a86/" target="_blank" rel="noopener">Aideen Cardiff</a></div>
@@ -530,17 +566,18 @@
 <footer class="foot">
   <div class="wrap">
     <div class="foot__top">
-      <div class="foot__mark">
-        <span class="mark"><span></span><span></span><span></span></span>
-        <div class="foot__word">Alareo<small>Leadership</small></div>
+      <div class="foot__brand">
+        <div class="foot__mark">
+          <span class="mark"><span></span><span></span><span></span></span>
+          <div class="foot__word">Alareo<small>Leadership</small></div>
+        </div>
+        <p class="foot__tag">Human, on Purpose.</p>
       </div>
-      <div class="foot__addr">
-        Glenard, Meath Road, Bray<br>Co. Wicklow, A98 XC92, Ireland
-      </div>
+      <div class="foot__addr">Bray, Co. Wicklow, Ireland</div>
     </div>
     <div class="foot__bottom">
       <span>© 2026 Alareo Leadership.</span>
-      <span>Supporting leaders' potential, performance &amp; wellbeing in the era of AI.</span>
+      <span>Executive coaching, leadership team development and mediation.</span>
     </div>
   </div>
 </footer>
