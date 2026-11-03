@@ -32,11 +32,9 @@ Options -Indexes
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
 
-  # Content-Security-Policy: only allows this site's own files plus Google
-  # Fonts. If you self-host the fonts, remove the two Google addresses.
-  # If you add a form service later (e.g. Formspree), add its address to
-  # form-action and connect-src.
-  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
+  # Content-Security-Policy: this site's own files and Formspree.
+  # Fonts are self-hosted in assets/fonts.
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
 
   # HSTS: uncomment ONLY once https:// is confirmed working on the domain.
   # Header always set Strict-Transport-Security "max-age=31536000"

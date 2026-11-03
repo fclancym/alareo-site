@@ -5,10 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alareo Leadership | Executive coaching, leadership team development and mediation</title>
 <meta name="description" content="Alareo Leadership provides executive coaching, leadership team development, mediation and reflective leadership retreats, giving leaders the space and challenge to navigate complexity. Based in Bray, Co. Wicklow.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Alareo Leadership | Executive coaching, leadership team development and mediation">
+<meta property="og:description" content="Alareo Leadership provides executive coaching, leadership team development, mediation and reflective leadership retreats, giving leaders the space and challenge to navigate complexity. Based in Bray, Co. Wicklow.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.alareo.ie/">
+<meta property="og:image" content="https://www.alareo.ie/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <style>
+  @font-face{font-family:"Newsreader";font-style:normal;font-weight:300 500;font-display:swap;src:url("assets/fonts/newsreader-latin.woff2") format("woff2")}
+  @font-face{font-family:"Newsreader";font-style:italic;font-weight:400;font-display:swap;src:url("assets/fonts/newsreader-italic-latin.woff2") format("woff2")}
+  @font-face{font-family:"Hanken Grotesk";font-style:normal;font-weight:400 700;font-display:swap;src:url("assets/fonts/hanken-grotesk-latin.woff2") format("woff2")}
   :root{
     --ink:#1f2d3b;
     --ink-soft:#4a5a69;
@@ -208,19 +215,29 @@
   @media(max-width:900px){.person img{width:150px;height:150px}}
 
   /* contact */
-  .contact__grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;margin-top:8px}
-  .contact__info p{color:var(--ink-soft);font-size:18px;margin-bottom:26px;max-width:32em}
+  .contact__grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  .contact__info .lead-head{margin-bottom:18px}
+  .contact__info > p{color:var(--ink-soft);font-size:18px;margin-bottom:26px;max-width:32em}
+  .booking-card{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:28px;margin-bottom:18px}
+  .booking-card h3,form .form-head{font-family:var(--serif);font-weight:500;font-size:22px;line-height:1.25;color:var(--ink);margin:0 0 10px}
+  .booking-card p{color:var(--ink-soft);font-size:16px;line-height:1.55;margin:0 0 18px}
   .cline{display:flex;gap:14px;padding:15px 0;border-bottom:1px solid var(--line);font-size:16px}
   .cline .lab{width:96px;color:var(--green-deep);font-weight:600;flex:none}
   .cline a:hover{color:var(--green-deep)}
   form{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:32px}
+  form .form-head{margin-bottom:18px}
   .field{margin-bottom:18px}
   .field label{display:block;font-size:14px;font-weight:600;margin-bottom:7px;color:var(--ink)}
   .field input,.field textarea{width:100%;font-family:var(--sans);font-size:16px;color:var(--ink);
     background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:12px 14px;transition:border-color .18s}
   .field input:focus,.field textarea:focus{outline:none;border-color:var(--green)}
   .field textarea{resize:vertical;min-height:110px}
+  form .btn{width:100%}
+  form .btn:disabled{opacity:.65;cursor:default}
   form .note{font-size:12.5px;color:var(--ink-soft);margin-top:10px}
+  form .form-error{font-size:14.5px;line-height:1.5;color:#8a3a32;margin-top:14px}
+  form .form-error a{color:var(--green-deep);text-decoration:underline}
+  form .form-status{font-size:17px;line-height:1.55;color:var(--ink)}
 
   /* footer */
   .foot{background:var(--ink);color:#b9c6cf;padding:56px 0 34px}
@@ -260,7 +277,7 @@
 
 <header class="nav">
   <div class="wrap nav__in">
-    <a class="nav__logo" href="#top" aria-label="Alareo Leadership home"><img src="assets/logo-full.png" alt="Alareo Leadership. Human, on Purpose."></a>
+    <a class="nav__logo" href="#top" aria-label="Alareo Leadership home"><img src="assets/logo-full.png" width="837" height="738" alt="Alareo Leadership. Human, on Purpose."></a>
     <nav class="nav__links" id="menu">
       <a href="#moment">Approach</a>
       <a href="#offers">Ways to work</a>
@@ -447,7 +464,7 @@
   <section class="section" id="about">
     <div class="wrap about__grid">
       <div class="about__photo">
-        <img src="assets/aideen-desk-v2.jpg" width="738" height="1050" alt="Aideen Cardiff, Co-Founder and Director of Alareo Leadership" loading="lazy">
+        <img src="assets/aideen-desk-v2.jpg" width="738" height="1050" alt="Aideen Cardiff, Co-Founder and Director of Alareo Leadership" loading="lazy" decoding="async">
         <span class="mark"><span></span><span></span><span></span></span>
       </div>
       <div class="about__body">
@@ -507,7 +524,7 @@
       <h2 class="lead-head">Experienced leaders, coaching from lived experience.</h2>
       <div class="people">
         <div class="person">
-          <img src="assets/aideen-desk-v2.jpg" alt="Aideen Cardiff">
+          <img src="assets/aideen-desk-v2.jpg" width="738" height="1050" alt="Aideen Cardiff" loading="lazy" decoding="async">
           <h3>Aideen Cardiff</h3>
           <div class="prole">Director &amp; Executive Coach</div>
           <p>Aideen has a wealth of lived experience to draw on, in support of her coaching clients.</p>
@@ -518,7 +535,7 @@
           </details>
         </div>
         <div class="person">
-          <img src="assets/declan-whittle-v3.jpg" alt="Declan Whittle">
+          <img src="assets/declan-whittle-v3.jpg" width="738" height="1050" alt="Declan Whittle" loading="lazy" decoding="async">
           <h3>Declan Whittle</h3>
           <div class="prole">Barrister-at-Law &amp; Mediator</div>
           <p>Declan Whittle is a Barrister-at-Law and mediator who brings a thoughtful, independent and solutions-focused approach to conflict resolution.</p>
@@ -529,7 +546,7 @@
           </details>
         </div>
         <div class="person">
-          <img src="assets/geraldine-murphy.jpg" alt="Geraldine Murphy">
+          <img src="assets/geraldine-murphy.jpg" width="768" height="768" alt="Geraldine Murphy" loading="lazy" decoding="async">
           <h3>Geraldine Murphy</h3>
           <div class="prole">LEAF Programme Partner</div>
           <p>A highly accomplished former bio-pharma CEO and company founder. She combines commercial leadership with a passion for developing people, working with executive teams on strategy, change and coaching.</p>
@@ -541,22 +558,31 @@
   <!-- CONTACT -->
   <section class="section" id="contact">
     <div class="wrap">
-      <div class="kicker"><span class="mark"><span></span><span></span><span></span></span> Get in touch</div>
       <div class="contact__grid">
         <div class="contact__info">
-          <h2 class="lead-head" style="margin-bottom:22px">Start a conversation.</h2>
-          <p>Whether you're exploring coaching for yourself, or a development programme for your organisation, the first step is a conversation.</p>
+          <div class="kicker"><span class="mark"><span></span><span></span><span></span></span> Get in touch</div>
+          <h2 class="lead-head">Start a conversation.</h2>
+          <p>Whether you’re exploring coaching for yourself, or a development programme for your organisation, the first step is a conversation.</p>
+          <div class="booking-card" data-booking-card hidden>
+            <h3>Book a 15-minute chemistry call</h3>
+            <p>An informal intro call to see whether working together feels right. Choose a time that suits you and you’ll get a calendar invite with a Microsoft Teams link.</p>
+            <a class="btn" href="#contact" data-booking>See available times <span class="arr" aria-hidden="true">→</span></a>
+          </div>
           <div class="cline"><span class="lab">Location</span><span>Bray, Co. Wicklow</span></div>
           <div class="cline"><span class="lab">Email</span><a href="mailto:aideen.cardiff@alareo.ie">aideen.cardiff@alareo.ie</a></div>
           <div class="cline"><span class="lab">Phone</span><a href="tel:+353871219003">+353 87 121 9003</a></div>
           <div class="cline"><span class="lab">LinkedIn</span><a href="https://www.linkedin.com/in/aideen-cardiff-b489a86/" target="_blank" rel="noopener">Aideen Cardiff</a></div>
         </div>
-        <form id="contact-form">
-          <div class="field"><label for="n">Name</label><input id="n" name="Name" type="text" placeholder="Your name" required></div>
-          <div class="field"><label for="e">Email</label><input id="e" name="Email" type="email" placeholder="you@organisation.com" required></div>
-          <div class="field"><label for="m">How can we help?</label><textarea id="m" name="Message" placeholder="A line or two about what you're looking for" required></textarea></div>
-          <button class="btn" type="submit" style="width:100%">Send message</button>
-          <p class="note">Opens your email app with the message ready to send to Aideen.</p>
+        <form id="contact-form" action="https://formspree.io/f/FORM_ID" method="POST">
+          <h3 class="form-head">Or send a message</h3>
+          <div class="field"><label for="n">Name</label><input id="n" name="name" type="text" required></div>
+          <div class="field"><label for="e">Email</label><input id="e" name="email" type="email" required></div>
+          <div class="field"><label for="m">Message</label><textarea id="m" name="message" required></textarea></div>
+          <input type="hidden" name="_subject" value="New enquiry from alareo.ie">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
+          <button class="btn" type="submit">Send message</button>
+          <p class="note">Your details are only used to reply to your message.</p>
+          <p class="form-error" hidden>Sorry, that didn’t send. Please email <a href="mailto:aideen.cardiff@alareo.ie">aideen.cardiff@alareo.ie</a> directly.</p>
         </form>
       </div>
     </div>
@@ -585,6 +611,8 @@
 <script>
   // PREVIEW ONLY: remove once Aideen has chosen the band photo
   var band=new URLSearchParams(location.search).get('band'); if(band) document.querySelector('.photoband').dataset.band=band;
+  // Paste Aideen's Microsoft Bookings page link here when it's ready.
+  var BOOKING_URL = '';
   var toggle=document.getElementById('toggle'),menu=document.getElementById('menu');
   toggle.addEventListener('click',function(){
     var open=menu.classList.toggle('open');
@@ -593,13 +621,58 @@
   menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open');toggle.setAttribute('aria-expanded',false);});});
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+
+  function prefillMessage(text){
+    var box=document.getElementById('m');
+    if(box && box.value==='') box.value=text;
+  }
+  function applyBooking(){
+    var card=document.querySelector('[data-booking-card]');
+    if(card) card.hidden=!BOOKING_URL;
+    document.querySelectorAll('[data-booking]').forEach(function(a){
+      if(BOOKING_URL){
+        a.href=BOOKING_URL;
+        a.target='_blank';
+        a.rel='noopener';
+      }else{
+        a.href='#contact';
+        a.removeAttribute('target');
+        a.removeAttribute('rel');
+      }
+    });
+  }
+  applyBooking();
+  document.querySelectorAll('[data-booking]').forEach(function(a){
+    a.addEventListener('click',function(){
+      if(!BOOKING_URL) prefillMessage('I’d like to book a chemistry call.');
+    });
+  });
+  document.querySelectorAll('[data-topic]').forEach(function(a){
+    a.addEventListener('click',function(){
+      var topic=a.getAttribute('data-topic');
+      prefillMessage(topic==='Pause en Provence'
+        ? 'I’d like to register my interest in Pause en Provence.'
+        : 'I’d like to find out more about '+topic+'.');
+    });
+  });
+
   document.getElementById('contact-form').addEventListener('submit',function(e){
     e.preventDefault();
-    var name=document.getElementById('n').value.trim();
-    var email=document.getElementById('e').value.trim();
-    var msg=document.getElementById('m').value.trim();
-    var body=encodeURIComponent('Name: '+name+'\nEmail: '+email+'\n\n'+msg);
-    window.location.href='mailto:aideen.cardiff@alareo.ie?subject='+encodeURIComponent('Alareo enquiry from '+name)+'&body='+body;
+    var form=e.currentTarget;
+    var btn=form.querySelector('button[type="submit"]');
+    var err=form.querySelector('.form-error');
+    btn.disabled=true;
+    btn.textContent='Sending…';
+    if(err) err.hidden=true;
+    fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}})
+      .then(function(res){ if(!res.ok) throw new Error('send failed');
+        form.innerHTML='<p class="form-status" role="status">Thank you. Your message has been sent and Aideen will be in touch soon.</p>';
+      })
+      .catch(function(){
+        btn.disabled=false;
+        btn.textContent='Send message';
+        if(err) err.hidden=false;
+      });
   });
 </script>
 </body>
