@@ -122,16 +122,49 @@
   .supports li::before{content:"";position:absolute;left:0;top:24px;width:11px;height:11px;background:var(--green);border-radius:50%}
   .supports li b{font-weight:600}
 
+  /* philosophy */
+  .philosophy__body{max-width:42em;margin-top:22px}
+  .philosophy__body p{font-size:18px;color:var(--ink-soft);margin-bottom:16px}
+  .philosophy__lead{margin-top:8px;font-weight:600;font-size:15px}
+  .levels{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:22px}
+  .level h3{font-family:var(--serif);font-weight:500;font-size:22px;line-height:1.2;margin:14px 0 8px}
+  .level p{font-size:15.5px;color:var(--ink-soft);line-height:1.5}
+  .mark--1 span:nth-child(n+2){opacity:.25}
+  .mark--2 span:nth-child(3){opacity:.25}
+  .pull{font-family:var(--serif);font-style:italic;font-weight:400;font-size:26px;line-height:1.35;color:var(--green-deep);max-width:18em;margin-top:44px}
+  @media(max-width:900px){.levels{grid-template-columns:1fr;gap:22px}}
+
   /* offers */
-  .offers{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:44px}
-  .offer{background:var(--green-deep);border:1px solid var(--green-deep);border-radius:5px;padding:34px 30px;display:flex;flex-direction:column;color:#eaf1ec}
-  .offer__no{font-family:var(--serif);font-style:italic;font-size:19px;color:#bfe0d1;margin-bottom:16px}
-  .offer h3{font-family:var(--serif);font-weight:500;font-size:25px;margin-bottom:12px;line-height:1.2;color:#fff}
-  .offer p{font-size:15.5px;color:#d3e3da;line-height:1.6;flex:1}
-  .offer__meta{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.2);font-size:13.5px;color:#bcd3c6}
-  .offer__badge{align-self:flex-start;margin-bottom:16px;background:rgba(255,255,255,.14);color:#fff;font-size:12.5px;font-weight:600;padding:5px 11px;border-radius:20px}
-  .offer .btn--ghost{margin-top:22px;align-self:flex-start;padding:9px 16px;font-size:13.5px;color:#fff;border-color:rgba(255,255,255,.45)}
+  .offers{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:44px;align-items:stretch}
+  .offer{background:var(--green-deep);border:1px solid var(--green-deep);border-radius:5px;padding:0;overflow:hidden;color:#eaf1ec;display:flex;flex-direction:column}
+  .offer__body{padding:34px 30px;display:flex;flex-direction:column;flex:1}
+  .offer__no{font-family:var(--serif);font-style:italic;font-size:19px;color:#bfe0d1;margin-bottom:12px}
+  .offer h3{font-family:var(--serif);font-weight:500;font-size:25px;line-height:1.2;color:#fff;margin-bottom:12px}
+  .offer h3 em{color:#fff}
+  .offer__sub{font-size:13.5px;color:#bfe0d1;margin:-6px 0 12px;font-weight:600}
+  .offer p{font-size:15.5px;color:#d3e3da;line-height:1.6}
+  .offer details{margin-top:14px;margin-bottom:20px}
+  .offer details p{margin-top:10px}
+  .offer summary{cursor:pointer;font-size:14px;color:#d7ebe0;text-decoration:underline;text-underline-offset:3px;list-style:none}
+  .offer summary::-webkit-details-marker{display:none}
+  .offer summary::after{content:" +"}
+  .offer details[open] summary::after{content:" ×"}
+  .offer__meta{margin-top:auto;padding-top:16px;border-top:1px solid rgba(255,255,255,.22);font-size:13.5px;color:#bcd3c6}
+  .offer__badge{align-self:flex-start;margin-bottom:14px;background:rgba(255,255,255,.14);color:#fff;font-size:12.5px;font-weight:600;padding:5px 11px;border-radius:20px}
+  .offer .btn--ghost{margin-top:20px;align-self:flex-start;padding:9px 16px;font-size:13.5px;color:#fff;border-color:rgba(255,255,255,.55)}
   .offer .btn--ghost:hover{background:rgba(255,255,255,.1);border-color:#fff;color:#fff}
+  @media(max-width:900px){.offers{grid-template-columns:1fr}}
+
+  /* organisations */
+  .org__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:start}
+  .org__body p{color:#d5e0e6;font-size:17px;margin-bottom:16px}
+  .org__head{font-size:15px;color:#9ec7b6;margin-bottom:14px;font-weight:600}
+  .supports--ink{border-top-color:rgba(255,255,255,.18)}
+  .supports--ink li{color:#e8eef1;border-bottom-color:rgba(255,255,255,.18)}
+  .supports--ink li::before{background:#9ec7b6}
+  .section--ink .org__cta{margin-top:26px;color:#fff;border-color:rgba(255,255,255,.6)}
+  .section--ink .org__cta:hover{background:rgba(255,255,255,.1);border-color:#fff;color:#fff}
+  @media(max-width:900px){.org__grid{grid-template-columns:1fr;gap:36px}}
 
   /* about */
   .about__grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
@@ -196,7 +229,7 @@
   /* responsive */
   @media(max-width:900px){
     .moment__grid,.about__grid,.contact__grid{grid-template-columns:1fr;gap:40px}
-    .offers,.people{grid-template-columns:1fr}
+    .people{grid-template-columns:1fr}
     .quotes{grid-template-columns:1fr}
     .creds{grid-template-columns:1fr}
     .nav__links{position:fixed;inset:150px 0 auto 0;background:#fff;flex-direction:column;align-items:flex-start;gap:0;padding:8px 28px 20px;border-bottom:1px solid var(--line);display:none}
@@ -265,12 +298,12 @@
   <!-- MOMENT / APPROACH -->
   <section class="section" id="moment">
     <div class="wrap">
-      <div class="kicker"><span class="mark"><span></span><span></span><span></span></span> The moment leaders are in</div>
       <div class="moment__grid">
         <div class="moment__body">
+          <div class="kicker"><span class="mark"><span></span><span></span><span></span></span> The moment leaders are in</div>
           <h2 class="lead-head" style="margin-bottom:24px">Space to think, when everything is moving at once.</h2>
-          <p>AI, uncertainty and rising expectations are reshaping how organisations work faster than most can absorb. Under pressure, leaders tend to either freeze or over-function — and judgement suffers either way.</p>
-          <p>Coaching interrupts that. It's a confidential, non-judgmental space to reflect, be challenged, and reconnect with what matters — so leaders stay grounded enough to be present today, and brave enough to shape what comes next.</p>
+          <p>AI, uncertainty and rising expectations are reshaping how organisations work faster than most can absorb. Under pressure, there is a risk of falling into a negative cycle of short-term reacting, the urgent crowding out the important, losing sight of what leadership requires and compromising personal wellbeing.</p>
+          <p>Coaching interrupts that. It’s a confidential, non-judgmental space to reflect, be challenged, and reconnect with what matters, so leaders stay grounded enough to be present today, and brave enough to shape what comes next.</p>
         </div>
         <div>
           <p style="font-size:15px;color:var(--ink-soft);margin-bottom:14px;font-weight:600">Coaching with Alareo supports you to:</p>
@@ -279,7 +312,7 @@
             <li>Gain <b>clarity</b> and a clearer sense of direction</li>
             <li>Build <b>confidence and presence</b></li>
             <li>Make <b>better decisions</b> under pressure</li>
-            <li>Navigate <b>life transitions</b> — a change in role, circumstances or stage</li>
+            <li>Navigate <b>life transitions</b>: a change in role, circumstances or stage</li>
             <li>Be the <b>best version of yourself</b>, and deliver results</li>
           </ul>
         </div>
@@ -287,34 +320,113 @@
     </div>
   </section>
 
-  <!-- OFFERS -->
-  <section class="section section--sage" id="offers">
+  <!-- PHILOSOPHY -->
+  <section class="section section--sage" id="philosophy">
     <div class="wrap">
-      <div class="kicker"><span class="mark"><span></span><span></span><span></span></span> Three ways to work together</div>
-      <h2 class="lead-head">Coaching at the centre — for individuals, teams and organisations.</h2>
+      <div class="kicker"><span class="mark"><span></span><span></span><span></span></span> Human, on Purpose.</div>
+      <h2 class="lead-head">Leadership for an era of polycrisis.</h2>
+      <div class="philosophy__body">
+        <p>Leaders are navigating technological disruption, AI adoption, economic uncertainty, sustainability challenges, geopolitical instability and changing workforce expectations, all at once. Success is no longer defined by expertise or authority alone, but by emotional intelligence, adaptability, judgement, resilience, empathy and the ability to create trust and psychological safety amid complexity.</p>
+        <p>At Alareo, we believe the future of leadership is profoundly human. Exceptional leadership is not simply about managing change, but about developing the self-awareness, emotional maturity and relational capability to lead through uncertainty while staying connected to purpose, people and performance.</p>
+        <p>Our work draws on lived experience across executive and non-executive leadership, commercial leadership, technology and consulting, governance, legal practice, mediation, sustainability leadership, systems thinking and organisational development.</p>
+      </div>
+      <p class="philosophy__lead">We develop capability at three connected levels:</p>
+      <div class="levels">
+        <div class="level">
+          <span class="mark mark--1"><span></span><span></span><span></span></span>
+          <h3>The individual leader</h3>
+          <p>Self-awareness, judgement, resilience and presence.</p>
+        </div>
+        <div class="level">
+          <span class="mark mark--2"><span></span><span></span><span></span></span>
+          <h3>The leadership team</h3>
+          <p>Trust, alignment, collaboration and shared accountability.</p>
+        </div>
+        <div class="level">
+          <span class="mark"><span></span><span></span><span></span></span>
+          <h3>The organisation</h3>
+          <p>Healthy cultures and sustainable performance.</p>
+        </div>
+      </div>
+      <p class="pull">In an age increasingly shaped by technology and disruption, the most important leadership capability is becoming more, not less, human.</p>
+    </div>
+  </section>
+
+  <!-- OFFERS -->
+  <section class="section" id="offers">
+    <div class="wrap">
+      <div class="kicker"><span class="mark"><span></span><span></span><span></span></span> Four ways to work together</div>
+      <h2 class="lead-head">Coaching at the centre, for individuals, teams and organisations.</h2>
       <div class="offers">
         <article class="offer">
-          <div class="offer__no">i.</div>
-          <h3>Executive Coaching</h3>
-          <p>One-to-one coaching for senior leaders. A trusted space to reflect, challenge assumptions and grow — whether you're leading through complexity or navigating a transition in role, circumstances or life stage.</p>
-          <div class="offer__meta">Values-based coaching with board-level perspective.</div>
-          <a class="btn btn--ghost" href="#contact">Find out more <span class="arr" aria-hidden="true">→</span></a>
+          <div class="offer__body">
+            <div class="offer__no">i.</div>
+            <h3>Executive Coaching</h3>
+            <p>One-to-one coaching for senior leaders. A trusted space to reflect, challenge assumptions and grow, whether you’re leading through complexity or navigating a transition in role, circumstances or life stage.</p>
+            <details><summary>Read more</summary><p>Self-awareness, adaptability, self-regulation and judgement are critical for leaders in uncertain environments. Leaders increasingly need the confidence to act without having all the answers, the curiosity to challenge assumptions and the wisdom to balance innovation with responsible decision-making. Drawing on decades of experience leading organisations, partnerships and transformation, Alareo helps leaders strengthen emotional intelligence, resilience, presence and strategic judgement, and sustain performance without compromising wellbeing.</p></details>
+            <div class="offer__meta">Values-based coaching with board-level perspective.</div>
+            <a class="btn btn--ghost" href="#contact" data-topic="Executive Coaching">Find out more <span class="arr" aria-hidden="true">→</span></a>
+          </div>
         </article>
         <article class="offer">
-          <div class="offer__no">ii.</div>
-          <h3>LEAF Programme</h3>
-          <p>A bespoke future-leadership programme, co-created with your organisation. Workshops, facilitated reflection and coaching build self-aware, resilient, future-focused leaders who can lead themselves, others and the business.</p>
-          <div class="offer__meta">Co-delivered with Geraldine Murphy, Evolution Partners.</div>
-          <a class="btn btn--ghost" href="#contact">Find out more <span class="arr" aria-hidden="true">→</span></a>
+          <div class="offer__body">
+            <div class="offer__no">ii.</div>
+            <h3>LEAF Programme</h3>
+            <div class="offer__sub">Leadership team development</div>
+            <p>A bespoke future-leadership programme, co-created with your organisation. Workshops, facilitated reflection and coaching build self-aware, resilient, future-focused leaders who can lead themselves, others and the business.</p>
+            <details><summary>Read more</summary><p>Trust, collaboration, communication and psychological safety are essential enablers of innovation and performance. Through LEAF, we help leadership teams build collective emotional intelligence and strengthen the quality of relationships, alignment and decision-making. Informed by systems thinking and organisational dynamics, the approach meets the individual, team and organisation where they’re at, and is co-developed and co-delivered in partnership with Alareo. The result is leadership teams that lead transformation more effectively while maintaining healthy cultures and sustainable performance.</p></details>
+            <div class="offer__meta">Co-delivered with Geraldine Murphy.</div>
+            <a class="btn btn--ghost" href="#contact" data-topic="the LEAF Programme">Find out more <span class="arr" aria-hidden="true">→</span></a>
+          </div>
         </article>
         <article class="offer">
-          <span class="offer__badge">In development</span>
-          <div class="offer__no">iii.</div>
-          <h3>Pause en Provence</h3>
-          <p>A reflective retreat to step back and restore — space to reflect, connect and return to your leadership with renewed clarity and energy.</p>
-          <div class="offer__meta">Details to follow — register your interest.</div>
-          <a class="btn btn--ghost" href="#contact">Register interest <span class="arr" aria-hidden="true">→</span></a>
+          <div class="offer__body">
+            <div class="offer__no">iii.</div>
+            <h3>Mediation</h3>
+            <p>Structured dialogue that helps leaders, teams and stakeholders address tension, build shared understanding and reach constructive outcomes.</p>
+            <details><summary>Read more</summary><p>Periods of significant change often surface conflict, misunderstanding and competing priorities. The ability to listen deeply, communicate openly and navigate difficult conversations has become a strategic leadership capability in its own right. Alareo’s mediation combines leadership insight with legal and mediation expertise, so that difficult conversations can be addressed constructively and leaders, teams and stakeholders can build understanding, restore trust and move forward productively.</p></details>
+            <div class="offer__meta">Delivered with Declan Whittle, Barrister-at-Law and mediator.</div>
+            <a class="btn btn--ghost" href="#contact" data-topic="Mediation">Find out more <span class="arr" aria-hidden="true">→</span></a>
+          </div>
         </article>
+        <article class="offer">
+          <div class="offer__body">
+            <span class="offer__badge">Expressions of interest open</span>
+            <div class="offer__no">iv.</div>
+            <h3><em>Pause en Provence</em></h3>
+            <p>Alareo’s signature leadership retreat, inspired by Aideen’s life in France and the rich traditions of Provence. A rare opportunity to step away from the demands of daily life and create space for reflection, connection and renewal.</p>
+            <details><summary>Read more</summary><p>Drawing on nature, art, culture, language and the senses, the retreat brings together mind, body and senses so participants can explore the human qualities that enable us to thrive in times of change: creativity, resilience, courage, growth, transition and reinvention. This is an invitation to pause, reset and reconnect with what matters most, personally and professionally.</p></details>
+            <div class="offer__meta">Programme and dates to be confirmed.</div>
+            <a class="btn btn--ghost" href="#contact" data-topic="Pause en Provence">Register interest <span class="arr" aria-hidden="true">→</span></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORGANISATIONS -->
+  <section class="section section--ink" id="organisations">
+    <div class="wrap">
+      <div class="org__grid">
+        <div class="org__body">
+          <div class="kicker"><span class="mark"><span></span><span></span><span></span></span> For organisations</div>
+          <h2 class="lead-head" style="margin-bottom:24px">Human leadership. Measurable performance. A stronger, more diverse pipeline.</h2>
+          <p>Alareo partners with organisations to turn leadership development into enterprise value. We strengthen the judgement, emotional intelligence and execution capability of C-suite leaders, leadership teams and high-potential talent, so they make better decisions, align faster, lead change with confidence and convert strategy into sustained performance.</p>
+          <p>Every engagement begins with discovery and is co-designed around your commercial priorities, culture and leadership realities. Through executive diagnostics, coaching, team development, action learning and facilitated dialogue, we connect individual growth with shared accountability and measurable business outcomes.</p>
+          <p>We also help organisations widen and strengthen their succession pipeline, creating the conditions in which talented people of different genders and cultural backgrounds can be recognised, sponsored, developed and heard. Inclusion is embedded in how leaders build trust, allocate opportunity, make decisions and hold one another accountable, not treated as a separate initiative.</p>
+        </div>
+        <div>
+          <p class="org__head">The return is leadership capacity that shows up where it matters:</p>
+          <ul class="supports supports--ink">
+            <li>Clearer strategic priorities</li>
+            <li>Stronger executive alignment</li>
+            <li>Faster, better decisions</li>
+            <li>Improved cross-functional delivery</li>
+            <li>Greater retention and readiness of high-potential talent</li>
+            <li>A more diverse bench of credible future leaders</li>
+          </ul>
+          <a class="btn btn--ghost org__cta" href="#contact" data-topic="your organisation">Talk to us about your organisation <span class="arr" aria-hidden="true">→</span></a>
+        </div>
       </div>
     </div>
   </section>
@@ -384,7 +496,7 @@
           <img src="assets/geraldine-murphy.jpg" alt="Geraldine Murphy">
           <h4>Geraldine Murphy</h4>
           <div class="prole">LEAF Programme Partner</div>
-          <p>A highly accomplished bio-pharma CEO and founder of Evolution Partners. She combines commercial leadership with a passion for developing people, working with executive teams on strategy, change and coaching.</p>
+          <p>A highly accomplished former bio-pharma CEO and company founder. She combines commercial leadership with a passion for developing people, working with executive teams on strategy, change and coaching.</p>
         </div>
       </div>
     </div>
