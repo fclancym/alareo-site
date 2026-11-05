@@ -66,7 +66,7 @@ alareo-site/
 │   ├── declan-team-circle.jpg     # Team section (circle, pre-cropped square)
 │   ├── geraldine-murphy.jpg       # Team section (circle). From the first version of the site: keep it
 │   ├── bg-leaf-art.svg            # growing-leaf drawing (behind the top photo, and on the LEAF card)
-│   ├── bg-bray-sunset.jpg         # Bray photo band
+│   ├── bray-sunset-hd.jpg         # Bray photo band
 │   ├── card-coaching-sea.jpg   # Executive Coaching card
 │   ├── photo-mediation.jpg     # Mediation card (to source; placeholder until then)
 │   └── photo-provence.jpg      # Pause en Provence card (to source; placeholder until then)
@@ -152,7 +152,7 @@ The order is fixed. People who gave their name come first; anonymous quotes come
 - **If the site is hosted on Blacknight with `.htaccess`:** add `https://formspree.io` to
   `form-action` and `connect-src` in the Content-Security-Policy line, or the form will
   be blocked.
-The band uses bg-bray-sunset.jpg, chosen by Aideen.
+The band uses bray-sunset-hd.jpg, chosen by Aideen.
 ## Images
  
 | Image | Recommended size | Budget |
