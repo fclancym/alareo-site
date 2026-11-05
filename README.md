@@ -60,15 +60,13 @@ alareo-site/
 │   ├── logo-full.png           # full logo incl. tagline (transparent PNG)
 │   ├── favicon.svg             # browser tab icon (three bars)
 │   ├── og-image.jpg            # preview image when the link is shared (1200x630)
-│   ├── aideen-hero-square.jpg  # top of page: square photo of Aideen (outdoors)
-│   ├── aideen-desk-v2.jpg      # About section (rectangle) and Team section (circle)
-│   ├── declan-whittle-v3.jpg   # Team section (circle)
-│   ├── geraldine-murphy.jpg    # Team section (circle). From the first version of the site: keep it
-│   ├── bg-leaf-art.svg         # growing-leaf drawing (behind the top photo, and on the LEAF card)
-│   ├── bray-band-7817.jpg      # Bray photo band (chosen photo)
-│   ├── bray-band-6305.jpg      # band option (delete once Aideen has chosen)
-│   ├── bray-band-7726.jpg      # band option (delete once Aideen has chosen)
-│   ├── bg-bray-sunset.jpg      # band option (delete once Aideen has chosen)
+│   ├── aideen-hero-square-v2.jpg  # top of page: square photo of Aideen (outdoors)
+│   ├── aideen-desk-v3.jpg         # About section (rectangle)
+│   ├── aideen-team-circle.jpg     # Team section (circle, pre-cropped square)
+│   ├── declan-team-circle.jpg     # Team section (circle, pre-cropped square)
+│   ├── geraldine-murphy.jpg       # Team section (circle). From the first version of the site: keep it
+│   ├── bg-leaf-art.svg            # growing-leaf drawing (behind the top photo, and on the LEAF card)
+│   ├── bg-bray-sunset.jpg         # Bray photo band
 │   ├── card-coaching-sea.jpg   # Executive Coaching card
 │   ├── photo-mediation.jpg     # Mediation card (to source; placeholder until then)
 │   └── photo-provence.jpg      # Pause en Provence card (to source; placeholder until then)
@@ -97,7 +95,7 @@ The palette is drawn from the logo: sage green and deep navy.
 - **Photo shapes:**
   - top-of-page photo of Aideen: square, 6px corners
   - About photo: rectangle (4:5)
-  - team photos: circles (176px, thin sage ring)
+  - team photos: circles (176px, thin sage ring), using pre-cropped square images
 - **Design intent:** credible and warm, with plenty of space ("space to think"). The
   page uses photos generously, but every section still has a clear heading and room to
   breathe.
@@ -154,19 +152,7 @@ The order is fixed. People who gave their name come first; anonymous quotes come
 - **If the site is hosted on Blacknight with `.htaccess`:** add `https://formspree.io` to
   `form-action` and `connect-src` in the Content-Security-Policy line, or the form will
   be blocked.
-## Bray photo band options
- 
-The band has a `data-band` attribute. The default is `7817`; the other options are
-`6305`, `7726` and `sunset`. Preview any of them by adding `?band=` to the address, for
-example `.../?band=6305`.
- 
-Once Aideen has chosen:
- 
-1. Set her choice as the default.
-2. Delete the preview line in the script and the CSS for the other options.
-3. Delete the unused band images.
-4. **If she picks `6305`,** change the Executive Coaching card to a different photo,
-   because that card uses the same view.
+The band uses bg-bray-sunset.jpg, chosen by Aideen.
 ## Images
  
 | Image | Recommended size | Budget |
@@ -200,7 +186,7 @@ them. Stock photos must be free for commercial use (Unsplash and Pexels are).
    deploys from a private repo, add Plesk's SSH key to the repo as a deploy key.
 ## Open items
  
-- [ ] Aideen to choose the Bray band photo (`?band=` previews)
+- [x] Aideen to choose the Bray band photo (`?band=` previews)
 - [ ] Testimonial 4: waiting on the second new testimonial
 - [ ] Names on testimonials: waiting on Aideen
 - [ ] Source the Mediation and Pause en Provence card photos (Aideen's own Provence photos preferred)
