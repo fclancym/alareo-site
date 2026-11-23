@@ -75,7 +75,9 @@
   .hero__eyebrow{display:flex;align-items:center;gap:12px;color:var(--green-deep);font-weight:600;font-size:14px;letter-spacing:.04em;margin-bottom:26px}
   .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(38px,5.4vw,62px);line-height:1.08;letter-spacing:-.01em;color:var(--ink)}
   .hero h1 em{font-style:italic;color:var(--green-deep)}
-  .hero__sub{font-size:19px;color:var(--ink-soft);margin-top:26px;max-width:34em;line-height:1.65}
+  .hero__tag{font-family:var(--serif);font-style:italic;font-size:24px;line-height:1.3;color:var(--green-deep);margin-top:24px}
+  .hero__sub{font-size:17px;color:var(--ink-soft);margin-top:14px;max-width:34em;line-height:1.65}
+  .hero__sub--close{color:var(--ink);font-weight:600}
   .hero__cta{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}
   .hero__photo{position:relative;isolation:isolate}
   .hero__photo img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:6px;display:block}
@@ -129,6 +131,7 @@
   .philosophy__body{max-width:42em;margin-top:22px}
   .philosophy__body p{font-size:18px;color:var(--ink-soft);margin-bottom:16px}
   .philosophy__lead{margin-top:8px;font-weight:600;font-size:15px}
+  .philosophy__focus{max-width:42em;margin-top:10px;margin-bottom:30px;font-size:18px;font-weight:600;line-height:1.55;color:var(--ink)}
   .levels{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:22px}
   .level h3{font-family:var(--serif);font-weight:500;font-size:22px;line-height:1.2;margin:14px 0 8px}
   .level p{font-size:15.5px;color:var(--ink-soft);line-height:1.5}
@@ -153,7 +156,6 @@
   .offer summary::after{content:" +"}
   .offer details[open] summary::after{content:" ×"}
   .offer__meta{margin-top:auto;padding-top:16px;border-top:1px solid rgba(255,255,255,.22);font-size:13.5px;color:#bcd3c6}
-  .offer__badge{align-self:flex-start;margin-bottom:14px;background:rgba(255,255,255,.14);color:#fff;font-size:12.5px;font-weight:600;padding:5px 11px;border-radius:20px}
   .offer .btn--ghost{margin-top:20px;align-self:flex-start;padding:9px 16px;font-size:13.5px;color:#fff;border-color:rgba(255,255,255,.55)}
   .offer .btn--ghost:hover{background:rgba(255,255,255,.1);border-color:#fff;color:#fff}
   @media(max-width:900px){.offers{grid-template-columns:1fr}}
@@ -162,6 +164,7 @@
   .org__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:start}
   .org__body p{color:#d5e0e6;font-size:17px;margin-bottom:16px}
   .org__head{font-size:15px;color:#9ec7b6;margin-bottom:14px;font-weight:600}
+  .org__body .org__lead{font-family:var(--serif);font-size:21px;line-height:1.45;color:#fff;margin-bottom:20px}
   .supports--ink{border-top-color:rgba(255,255,255,.18)}
   .supports--ink li{color:#e8eef1;border-bottom-color:rgba(255,255,255,.18)}
   .supports--ink li::before{background:#9ec7b6}
@@ -180,12 +183,18 @@
   .about__photo .mark span:nth-child(3){height:36px}
   .about__body h2{font-family:var(--serif);font-weight:400;font-size:clamp(28px,3.4vw,40px);margin-bottom:8px}
   .about__role{color:var(--green-deep);font-weight:600;font-size:15px;margin-bottom:24px}
+  .about__quote{margin:26px 0 6px;padding:4px 0 4px 22px;border-left:3px solid var(--green);max-width:40em}
+  .about__body .about__quote p,.about__quote li{font-family:var(--serif);font-size:19px;line-height:1.5;color:var(--ink)}
+  .about__body .about__quote p{margin-bottom:10px}
+  .about__quote ol{padding-left:1.4em}
+  .about__quote li{margin-bottom:8px}
   .about__body p{color:var(--ink-soft);font-size:17px;margin-bottom:16px;max-width:40em}
   .creds{list-style:none;margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:12px 28px}
   .creds li{font-size:14.5px;color:var(--ink);padding-left:20px;position:relative;line-height:1.45}
   .creds li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border:1.5px solid var(--green);border-radius:50%}
 
   /* testimonials */
+  .voices__intro{font-size:18px;color:var(--ink-soft);max-width:44em;margin-top:18px}
   .quotes{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
   .quote{margin:0;background:#fff;border:1px solid var(--line);border-radius:5px;padding:36px 34px}
   .quote blockquote{margin:0}
@@ -279,7 +288,7 @@
       <a href="#offers">Ways to work</a>
       <a href="#organisations">For organisations</a>
       <a href="#about">About</a>
-      <a class="btn" href="#contact" data-booking>Book a chemistry call</a>
+      <a class="btn" href="#contact" data-booking>Schedule a call</a>
     </nav>
     <button class="nav__toggle" id="toggle" aria-label="Menu" aria-expanded="false">☰</button>
   </div>
@@ -292,10 +301,14 @@
     <div class="wrap hero__grid">
       <div class="reveal in">
         <div class="hero__eyebrow"><span class="mark"><span></span><span></span><span></span></span> Executive coaching, Leadership team development and Mediation</div>
-        <h1><em>Transforming space</em>, to support leaders’ performance, potential and wellbeing.</h1>
-        <p class="hero__sub">In a world shaped by polycrisis and accelerating change, Alareo provides both space and challenge to help leaders cultivate the confidence, clarity and curiosity to navigate complexity, unlock human potential and lead purposeful transformation.</p>
+        <h1><em>Transforming space</em>, supporting performance, potential and wellbeing.</h1>
+        <p class="hero__tag">Human. On purpose.</p>
+        <p class="hero__sub">The most successful leaders and fulfilled individuals are not those who simply work harder. They are those who understand themselves deeply, lead intentionally and make conscious choices aligned with their values, strengths and aspirations.</p>
+        <p class="hero__sub">Alareo exists to help people thrive through greater self-awareness, purposeful, authentic leadership and meaningful growth. When people lead with greater clarity, confidence and purpose, performance improves, relationships strengthen and wellbeing becomes sustainable rather than sacrificed.</p>
+        <p class="hero__sub">Whether you are leading an organisation through growth and transformation or navigating a significant career or life transition, our human-centred approach helps you create meaningful progress that delivers results while staying true to what matters most.</p>
+        <p class="hero__sub hero__sub--close">Because sustainable performance starts with understanding the person behind it.</p>
         <div class="hero__cta">
-          <a class="btn" href="#contact" data-booking>Book a chemistry call</a>
+          <a class="btn" href="#contact" data-booking>Schedule a call</a>
           <a class="btn btn--ghost" href="#offers">Explore how we work <span class="arr" aria-hidden="true">→</span></a>
         </div>
       </div>
@@ -303,7 +316,7 @@
         <img src="assets/aideen-hero-square-v2.jpg" width="1024" height="1024" alt="Aideen Cardiff, Co-Founder and Director of Alareo Leadership">
         <figure class="quotecard">
           <blockquote><p>“Aideen is an excellent coach, who approached our sessions in a refreshingly holistic way, treating professional and non-professional life as two complementary aspects of a single life, rather than focusing on career at the expense of the person underneath.”</p></blockquote>
-          <figcaption class="attr">Partner at Law</figcaption>
+          <figcaption class="attr">Former Partner, Legal Practice</figcaption>
         </figure>
       </div>
     </div>
@@ -316,7 +329,7 @@
   </div></section>
 
   <section class="photoband" aria-label="Bray"><div class="wrap">
-    <h2>The human qualities of self-awareness, empathy, judgement and bravery matter more than ever.</h2>
+    <h2>The human qualities of self-awareness, empathy, judgement, ethics, creativity, adaptability and bravery matter more than ever.</h2>
     <a class="btn btn--ghost" href="#contact">Start a conversation <span class="arr" aria-hidden="true">→</span></a>
   </div></section>
 
@@ -334,11 +347,13 @@
           <p style="font-size:15px;color:var(--ink-soft);margin-bottom:14px;font-weight:600">Coaching with Alareo supports you to:</p>
           <ul class="supports">
             <li>Have genuine <b>space to think</b>, explore and be challenged</li>
-            <li>Gain <b>clarity</b> and a clearer sense of direction</li>
+            <li>Increase <b>self-awareness and systems thinking</b></li>
+            <li>Gain <b>clarity</b> and a clear understanding of priorities and direction</li>
             <li>Build <b>confidence and presence</b></li>
             <li>Make <b>better decisions</b> under pressure</li>
             <li>Navigate <b>life transitions</b>: a change in role, circumstances or stage</li>
-            <li>Be the <b>best version of yourself</b>, and deliver results</li>
+            <li>Be the <b>best version of yourself</b></li>
+            <li>Engage others for <b>impact and results</b></li>
           </ul>
         </div>
       </div>
@@ -351,10 +366,11 @@
       <div class="kicker"><span class="mark"><span></span><span></span><span></span></span> Human, on Purpose.</div>
       <h2 class="lead-head">Leadership for an era of polycrisis.</h2>
       <div class="philosophy__body">
-        <p>Leaders are navigating technological disruption, AI adoption, economic uncertainty, sustainability challenges, geopolitical instability and changing workforce expectations, all at once. Success is no longer defined by expertise or authority alone, but by emotional intelligence, adaptability, judgement, resilience, empathy and the ability to create trust and psychological safety amid complexity.</p>
+        <p>Leaders, professionals and employees are navigating technological disruption, AI adoption, economic uncertainty, sustainability challenges, geopolitical instability and changing workforce expectations, all at once. Success is no longer defined by expertise or authority alone, but by emotional intelligence, adaptability, judgement, resilience, empathy and the ability to create trust and psychological safety amid complexity.</p>
         <p>At Alareo, we believe the future of leadership is profoundly human. Exceptional leadership is not simply about managing change, but about developing the self-awareness, emotional maturity and relational capability to lead through uncertainty while staying connected to purpose, people and performance.</p>
-        <p>Our work draws on lived experience across executive and non-executive leadership, commercial leadership, technology and consulting, governance, legal practice, mediation, sustainability leadership, systems thinking and organisational development.</p>
+        <p>Alareo brings together lived commercial leadership and legal experience, expertise and perspectives based on the professional backgrounds of the founders. Aideen’s executive and non-executive experience informs an approach grounded in the realities of leadership, strategy, organisational development and accountability. Her focus on systems thinking and sustainability, alongside her understanding of AI, technology and consulting, keeps attention on the wider context in which decisions are made. Mediation adds a complementary perspective on differing interests, constructive dialogue and conflict. Together, these perspectives connect human development with organisational complexity and purposeful action.</p>
       </div>
+      <p class="philosophy__focus">Our focus is the connection between individual growth, team relationships and organisational culture: helping people develop their capability, work more effectively with others and contribute to shared performance.</p>
       <p class="philosophy__lead">We develop capability at three connected levels:</p>
       <div class="levels">
         <div class="level">
@@ -416,7 +432,6 @@
         </article>
         <article class="offer">
           <div class="offer__body">
-            <span class="offer__badge">Expressions of interest open</span>
             <div class="offer__no">iv.</div>
             <h3><em>Pause en Provence</em></h3>
             <p>Alareo’s signature leadership retreat, inspired by Aideen’s life in France and the rich traditions of Provence. A rare opportunity to step away from the demands of daily life and create space for reflection, connection and renewal.</p>
@@ -435,20 +450,22 @@
       <div class="org__grid">
         <div class="org__body">
           <div class="kicker"><span class="mark"><span></span><span></span><span></span></span> For organisations</div>
-          <h2 class="lead-head" style="margin-bottom:24px">Human leadership. Measurable performance. A stronger, more diverse pipeline.</h2>
-          <p>Alareo partners with organisations to turn leadership development into enterprise value. We strengthen the judgement, emotional intelligence and execution capability of C-suite leaders, leadership teams and high-potential talent, so they make better decisions, align faster, lead change with confidence and convert strategy into sustained performance.</p>
-          <p>Every engagement begins with discovery and is co-designed around your commercial priorities, culture and leadership realities. Through executive diagnostics, coaching, team development, action learning and facilitated dialogue, we connect individual growth with shared accountability and measurable business outcomes.</p>
-          <p>We also help organisations widen and strengthen their succession pipeline, creating the conditions in which talented people of different genders and cultural backgrounds can be recognised, sponsored, developed and heard. Inclusion is embedded in how leaders build trust, allocate opportunity, make decisions and hold one another accountable, not treated as a separate initiative.</p>
+          <h2 class="lead-head" style="margin-bottom:24px">Stronger leadership capability. A positive impact that compounds across teams, culture and performance.</h2>
+          <p class="org__lead">Developing a leader is an investment in the teams they influence, the culture they shape and the performance they enable.</p>
+          <p>Alareo partners with organisations to strengthen leadership capability, with the aim of creating a <em>positive impact that compounds across teams, culture and performance</em>. We start with self-awareness: helping leaders understand their drivers, recognise their strengths and identify their development edge, so they can consciously tailor how they lead, communicate and role model the behaviours they want to see in others.</p>
+          <p>Self-awareness creates value when it changes everyday leadership: how leaders listen, communicate, share responsibility and respond to different perspectives. These behaviours help build empowerment, inclusion and trust, creating conditions in which people can feel heard, take ownership, contribute and grow. As the behaviours take hold across teams, their positive effect can compound, strengthening employee engagement and collaboration, enriching organisational culture and supporting sustained business performance.</p>
+          <p>Each engagement begins with discovery and is co-designed around your priorities, culture and leadership realities. Our coaching combines space to reflect with constructive challenge and an independent perspective, helping leaders turn insight into everyday practice. Alongside team development, action learning and facilitated dialogue, this approach connects individual development with shared accountability and organisational outcomes.</p>
+          <p>At the outset, we agree what meaningful progress would look like for your organisation and how we will review it together. Depending on your priorities, this may include changes in leadership behaviours, team feedback, employee engagement, shared ownership or progress against agreed business objectives. The aim is to connect development with observable change, not simply participation in coaching.</p>
         </div>
         <div>
-          <p class="org__head">The return is leadership capacity that shows up where it matters:</p>
+          <p class="org__head">The value of stronger leadership capability is felt throughout the organisation:</p>
           <ul class="supports supports--ink">
-            <li>Clearer strategic priorities</li>
-            <li>Stronger executive alignment</li>
-            <li>Faster, better decisions</li>
-            <li>Improved cross-functional delivery</li>
-            <li>Greater retention and readiness of high-potential talent</li>
-            <li>A more diverse bench of credible future leaders</li>
+            <li>More self-aware, intentional leadership</li>
+            <li>A culture of empowerment, inclusion and trust</li>
+            <li>Greater employee engagement and ownership</li>
+            <li>More opportunities for people to contribute and grow</li>
+            <li>Stronger collaboration and shared accountability</li>
+            <li>An enriched culture that supports sustained performance</li>
           </ul>
           <a class="btn btn--ghost org__cta" href="#contact" data-topic="your organisation">Talk to us about your organisation <span class="arr" aria-hidden="true">→</span></a>
         </div>
@@ -469,6 +486,13 @@
         <div class="about__role">Co-Founder &amp; Director</div>
         <p>Aideen brings more than three decades of senior leadership across the global technology organisations HP, IBM and Microsoft, spanning sales, consulting, partner ecosystems, emerging technology and large-scale transformation across Ireland, the UK and Europe.</p>
         <p>That commercial credibility sits alongside a deep commitment to culture, inclusion and governance. She is a serving Board Chair and Non-Executive Director, and is an EMCC accredited executive coach supporting leaders through uncertainty, change and transition, with a focus on confidence, clarity, decision-making, presence and wellbeing.</p>
+        <blockquote class="about__quote">
+          <p>“<em>Human, on Purpose</em> felt right, as a way to describe my focus and approach with clients. I like that it carries two separate meanings:</p>
+          <ol>
+            <li>Being deliberately human (in a world where AI is everywhere and geopolitical and climate crisis is overwhelming), the need and value for Leaders and professionals to develop and lean into EQ for positive impact and</li>
+            <li>importance of connecting to what matters.”</li>
+          </ol>
+        </blockquote>
         <ul class="creds">
           <li>Executive Coaching, Higher Diploma, UCD Michael Smurfit (2025-26)</li>
           <li>Innovation for Sustainability, Higher Diploma, UCD (2024-25)</li>
@@ -487,27 +511,31 @@
     <div class="wrap">
       <div class="kicker"><span class="mark"><span></span><span></span><span></span></span> In their words</div>
       <h2 class="lead-head">What leaders take away from the work.</h2>
+      <p class="voices__intro">What clients value in the coaching experience: confidential space to reflect, a holistic focus on the person as well as their work, constructive challenge and an independent perspective. Their feedback describes greater self-awareness, confidence and clarity about how to move forward.</p>
       <div class="quotes">
         <figure class="quote quote--featured">
           <blockquote><p>“Aideen is an excellent coach, who approached our sessions in a refreshingly holistic way, treating professional and non-professional life as two complementary aspects of a single life, rather than focusing on career at the expense of the person underneath. Our meetings were always thought-provoking, with plenty of constructive challenge to test my long held assumptions and explore new perspectives. Working with Aideen was a very valuable experience, which has equipped me to better work out what I want to do from here and given me greater confidence to embrace new opportunities.”</p></blockquote>
-          <figcaption class="attr">Partner at Law</figcaption>
+          <figcaption class="attr">Former Partner, Legal Practice</figcaption>
         </figure>
         <figure class="quote">
           <blockquote><p>“Working with Aideen was a very positive experience. She brought professionalism, insight and a thoughtful approach to each session, creating a supportive and confidential space to reflect. I’d recommend her to anyone looking for an experienced coach who can facilitate constructive conversations and an independent perspective.”</p></blockquote>
-          <figcaption class="attr">Coaching client, Health &amp; Safety Authority</figcaption>
+          <figcaption class="attr">Leader, Health &amp; Safety Authority</figcaption>
         </figure>
         <figure class="quote">
           <blockquote><p>“Professional coaching with Aideen gave me a confidential sounding board and the space to step back and reflect. It made me more self-aware, both of how I approach challenges and of the tools I already had at my disposal and gave me more faith in my own ability. Well worth it, and I’d recommend Aideen to anyone considering coaching.”</p></blockquote>
           <figcaption class="attr">Senior Manager, Consulting sector</figcaption>
         </figure>
-        <!-- TESTIMONIAL 4: second new testimonial goes here when it arrives -->
         <figure class="quote">
           <blockquote><p>“An extremely pleasant and liberating experience. I regained my self-confidence and a greater ability to hold my own with others. Aideen’s approach, non-judgmental, questioning and deeply human, was unique and meaningful.”</p></blockquote>
-          <figcaption class="attr">Executive coaching client</figcaption>
+          <figcaption class="attr">Former CEO, Technology sector</figcaption>
         </figure>
         <figure class="quote">
           <blockquote><p>“I walked in feeling inwardly deflated, and walked out with lightness and a clearer sense of how to move forward.”</p></blockquote>
-          <figcaption class="attr">Executive coaching client</figcaption>
+          <figcaption class="attr">Leader, Technology sector</figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote><p>“Working with Aideen offered me a safe space to talk openly about challenges in the workplace, time to reflect on the value I bring daily and supported rebuilding the confidence, I shouldn’t have questioned. I connected with Aideen early on and I felt comfortable and seen. She is open minded and has an EQ that tunes in very quickly on a human level. I’d have no hesitation in recommending Aideen as a professional executive coach.”</p></blockquote>
+          <figcaption class="attr">Director, Technology sector</figcaption>
         </figure>
       </div>
     </div>
@@ -560,7 +588,7 @@
           <h2 class="lead-head">Start a conversation.</h2>
           <p>Whether you’re exploring coaching for yourself, or a development programme for your organisation, the first step is a conversation.</p>
           <div class="booking-card" data-booking-card hidden>
-            <h3>Book a 15-minute chemistry call</h3>
+            <h3>Schedule a 15-minute call</h3>
             <p>An informal intro call to see whether working together feels right. Choose a time that suits you and you’ll get a calendar invite with a Microsoft Teams link.</p>
             <a class="btn" href="#contact" data-booking>See available times <span class="arr" aria-hidden="true">→</span></a>
           </div>
@@ -638,7 +666,7 @@
   applyBooking();
   document.querySelectorAll('[data-booking]').forEach(function(a){
     a.addEventListener('click',function(){
-      if(!BOOKING_URL) prefillMessage('I’d like to book a chemistry call.');
+      if(!BOOKING_URL) prefillMessage('I’d like to schedule a call.');
     });
   });
   document.querySelectorAll('[data-topic]').forEach(function(a){

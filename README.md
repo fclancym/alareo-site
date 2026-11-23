@@ -31,9 +31,7 @@ Cursor or Claude. **Read "Rules for editing" before changing anything.**
    ID is designed to be public, so that one is fine.
 7. **Testimonials:**
    - **Every testimonial is important to Aideen.** Never drop, shorten or reword one.
-   - **No personal names for now.** Each quote shows only its role line (see
-     "Testimonials" below). Names are added only when Aideen confirms each person is
-     happy to be named.
+   - Captions show a role (and organisation where the person agreed), never a personal name.
    - Never add an employer or organisation the person didn't write themselves.
 8. **Partners:** describe Geraldine Murphy only as a former bio-pharma CEO and company
    founder. **Never name her companies, past or present.**
@@ -108,10 +106,10 @@ The palette is drawn from the logo: sage green and deep navy.
 | 3 | Key facts strip (three facts) | | white |
 | 4 | Bray photo band: "The human qualities..." + button | | photo |
 | 5 | The moment leaders are in | `moment` | paper |
-| 6 | Human, on Purpose (philosophy and three levels) | `philosophy` | sage |
+| 6 | Human, on Purpose (philosophy, a bold focus line, and three levels) | `philosophy` | sage |
 | 7 | Four ways to work together (white cards with a picture on top and "Read more") | `offers` | paper |
 | 8 | For organisations | `organisations` | ink |
-| 9 | About Aideen: photo, full bio, credentials | `about` | paper |
+| 9 | About Aideen: photo, full bio, her "Human, on Purpose" quote, credentials | `about` | paper |
 | 10 | Testimonials: one featured, the rest in a grid | `voices` | sage |
 | 11 | Team: Aideen (short bio), Declan, Geraldine, all in circles, with "Read full bio" | `people` | ink |
 | 12 | Contact: booking card, contact details, form | `contact` | paper |
@@ -126,19 +124,19 @@ The order is fixed. People who gave their name come first; anonymous quotes come
  
 | # | Where | Role line shown on the site |
 |---|-------|-----------------------------|
-| 1 | Featured (and its first sentence in the top-of-page quote card) | Partner at Law |
-| 2 | Grid | Coaching client, Health & Safety Authority |
+| 1 | Featured (and its first sentence in the top-of-page quote card) | Former Partner, Legal Practice |
+| 2 | Grid | Leader, Health & Safety Authority |
 | 3 | Grid | Senior Manager, Consulting sector |
-| 4 | Grid | *(second new testimonial, to come; goes here when it arrives)* |
-| 5 | Grid | Executive coaching client |
-| 6 | Grid | Executive coaching client |
+| 4 | Grid | Former CEO, Technology sector |
+| 5 | Grid | Leader, Technology sector |
+| 6 | Grid | Director, Technology sector |
  
 - **Grid:** two columns on laptops and one on phones. If the grid has an odd number of
   quotes, the last one spans the full width.
 - **Names** are kept privately by Fionn and added only when Aideen confirms.
 ## Contact and booking
  
-- **Chemistry call:** a 15-minute intro call. The "Book a chemistry call" buttons
+- **Schedule a call:** a 15-minute call. The "Schedule a call" buttons
   (header, hero, contact section) all use one setting, `BOOKING_URL`, at the top of the
   script. Paste Aideen's Microsoft Bookings page link there. While it's empty, the
   buttons scroll to the contact form instead, and the booking card is hidden.
@@ -187,7 +185,6 @@ them. Stock photos must be free for commercial use (Unsplash and Pexels are).
 ## Open items
  
 - [x] Aideen to choose the Bray band photo (`?band=` previews)
-- [ ] Testimonial 4: waiting on the second new testimonial
 - [ ] Names on testimonials: waiting on Aideen
 - [ ] Source the Mediation and Pause en Provence card photos (Aideen's own Provence photos preferred)
 - [ ] Set up Microsoft Bookings (15-minute chemistry call) and paste the link into `BOOKING_URL`
